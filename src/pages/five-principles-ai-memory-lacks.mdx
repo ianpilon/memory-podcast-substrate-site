@@ -1,0 +1,84 @@
+# Five Principles AI Memory Lacks
+
+**Summary**: Youssef's enumeration of the five architectural properties that distinguish identity-constructing biological memory from storage-and-retrieval AI memory. Each principle has a clear engineering analogue.
+
+**Sources**: Robert Youssef x post.pdf
+
+**Last updated**: 2026-05-27
+
+---
+
+## The five principles
+
+### 1. Hierarchical temporal organization
+
+**Source**: Conway's [autobiographical-knowledge-base](/autobiographical-knowledge-base).
+
+Human memory narrows by life period, then event type, then specific details. AI memory is flat, every fragment at the same level, brute-force search across everything.
+
+**Engineering fix**: interaction epochs (lifetime periods), recurring themes (general events), specific exchanges (episodes). Retrieval descends the hierarchy.
+
+### 2. Goal-relevant filtering
+
+**Source**: Conway's [working-self](/working-self).
+
+Your brain retrieves memories relevant to current goals, not whatever is closest in embedding space. The working self gates access based on what is currently being pursued.
+
+**Engineering fix**: a dynamic representation of current goals and task context that gates retrieval. Could be implemented as an attention mask, a planner-mediated retrieval step, or a system prompt that adapts to current task.
+
+### 3. Emotional weighting
+
+**Source**: Damasio's [somatic-marker-hypothesis](/somatic-marker-hypothesis).
+
+Emotionally significant experiences encode deeper and retrieve faster. AI agents store frustrated conversations with the same weight as routine queries.
+
+**Engineering fix**: sentiment-scored metadata on memory nodes that biases future behaviour. The challenge is using the scores well, not computing them; sentiment classifiers are mature.
+
+### 4. Narrative coherence
+
+**Source**: Bruner via Youssef. See [narrative-coherence](/narrative-coherence).
+
+Humans organize memories into a story that maintains a consistent self across time. AI agents have zero narrative; each interaction exists independently.
+
+**Engineering fix**: a narrative layer that synthesizes memories into a relational story that influences responses. This is the fuzziest of the five and likely the hardest to implement.
+
+### 5. Co-emergent self-model
+
+**Source**: Klein and Nichols via Youssef. See [co-emergent-self-model](/co-emergent-self-model).
+
+Human identity and memory bootstrap each other through a feedback loop. AI agents have no self-model that evolves.
+
+**Engineering fix**: not just "what I know about this user" but "who I am in this relationship." An evolving system prompt or agent identity model that updates based on interaction history.
+
+## Why these five and not others
+
+Youssef's selection is psychology-anchored. Each principle has a named originator and decades of empirical literature. He explicitly excludes Levin-style claims (substrate-agnostic memory, polycomputing, no single substrate) because they go beyond what is needed to redesign AI agent memory using known psychology.
+
+This is also the most tractable engineering target. The five principles are mostly buildable today:
+
+| Principle | Tractability |
+| --- | --- |
+| Hierarchical organization | High, nested data structures |
+| Goal-relevant filtering | High, planner-mediated retrieval |
+| Emotional weighting | Medium, sentiment scoring exists; using it well is harder |
+| Narrative coherence | Low, no clean architectural pattern yet |
+| Co-emergent self-model | Medium-low, but improving with agent frameworks |
+
+## The paradigm shift
+
+Youssef frames the five principles as evidence for a single paradigm shift: stop building agent memory as a retrieval system; start building it as an identity system. The principles are not five separate fixes; they are a single architectural commitment. See [ai-memory-as-identity-construction](/ai-memory-as-identity-construction).
+
+## What is missing
+
+Youssef's framework does not address Levin's substrate-level claims. If [no-single-substrate](/no-single-substrate) is right, then even an architecturally correct implementation of the five principles on top of a vector database may fail to support the active reinterpretation that biological memory does. The five principles may be necessary but not sufficient. See [open-questions](/open-questions).
+
+## Related pages
+
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
+- [autobiographical-knowledge-base](/autobiographical-knowledge-base)
+- [working-self](/working-self)
+- [somatic-marker-hypothesis](/somatic-marker-hypothesis)
+- [narrative-coherence](/narrative-coherence)
+- [co-emergent-self-model](/co-emergent-self-model)
+- [memory-as-substrate-thesis](/memory-as-substrate-thesis)
+- [open-questions](/open-questions)

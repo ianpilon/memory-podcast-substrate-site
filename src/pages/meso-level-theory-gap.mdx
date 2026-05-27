@@ -1,0 +1,62 @@
+# Meso-Level Theory Gap
+
+**Summary**: The Galois article's argument that neuroscience has detailed micro-scale knowledge (neurons, signaling) and cognitive science has macro-scale knowledge (regional networks, behaviour) but the meso-level (how specific cognitive functions are realized in circuits) is largely missing. This gap is plausibly the bottleneck for human-like AGI.
+
+**Sources**: The promise-of-agi-neuroscience.pdf
+
+**Last updated**: 2026-05-27
+
+---
+
+## The three scales
+
+The Galois piece distinguishes three scales of brain understanding (source: The promise-of-agi-neuroscience.pdf):
+
+- **Micro**: single-neuron electrophysiology, synaptic biochemistry, ion channels. We have exquisite detail.
+- **Meso**: how circuits implement specific cognitive functions. **Largely missing**.
+- **Macro**: regional networks (fMRI, EEG) and their behavioural correlates. We have broad strokes.
+
+The micro and macro do not yet talk to each other. Connecting them requires meso-level theories that are simultaneously:
+
+- Algorithmically specific enough to support machine implementation.
+- Mechanistically grounded enough to constrain to actual brain circuits.
+
+## Why the gap is hard to close
+
+Three practical constraints:
+
+- **Imaging resolution**. fMRI, EEG, PET, MEG, DTI, and TMS/TDCS all lack the resolution to peer into the living human at meso scale. Single-neuron recording is invasive and used mostly on animals.
+- **Connectome data**. The only fully mapped connectome is C. elegans (302 neurons). The Human Connectome Project (begun 2011) is still incomplete; the Human Brain Project has yielded disappointing results.
+- **Human-specific cognition**. Vision and motor processing are well-understood because they are shared with animals and can be probed in non-verbal subjects. Language, complex reasoning, and explicit memory are harder because humans are the only animals that can talk about them.
+
+## What "just right" would look like
+
+The article describes meso theories as Goldilocks-level: detailed enough to support algorithmic implementation, abstract enough to capture cognitive function. This is the right scope to inform AI:
+
+- Too micro: simulating each neuron is not tractable and the cognitive function is invisible.
+- Too macro: knowing that "the medial temporal lobe is active during memory recall" does not tell an engineer how to build memory recall.
+- Just right: "memory recall is a hippocampally-coordinated reactivation of distributed cortical activations under control of a fronto-temporal evaluation process," which is essentially what Conway's SMS provides.
+
+In this sense, Conway's [self-memory-system](/self-memory-system) is itself a meso-level theory. The Galois piece is arguing for more theories of this kind across other cognitive domains.
+
+## Why this matters for the wiki
+
+The meso-gap is the precise reason Youssef's psychology-to-engineering bridge ([youssef-2026-psychology-and-ai-memory](/youssef-2026-psychology-and-ai-memory)) is so valuable. Psychology, especially Conway's branch, has been doing meso-level theory work for decades. Most AI memory engineering ignores it. Closing the gap requires either:
+
+- More cross-disciplinary collaboration (Galois's recommendation: cognitive psychologists, cognitive neuroscientists, psychometricians, philosophers at the AGI table).
+- More direct translation of existing meso theories into ML architectures (Youssef's approach: take Conway, Damasio, Bruner, etc. and write the principles down as engineering specs).
+
+The wiki frames Youssef as the immediate-action version and Galois as the longer-horizon caution.
+
+## Connection to substrate
+
+The meso gap is also why the substrate question remains open. We do not know which meso-scale processes are doing the cognitive work, so we cannot know which substrates can implement them. Levin's [no-single-substrate](/no-single-substrate) claim implicitly says: the substrate question cannot be answered cleanly because biology uses everything. The Galois piece says: we cannot answer the substrate question because we do not yet understand the meso layer. Both lead to humility about current LLM-as-mind claims.
+
+## Related pages
+
+- [brain-metaphor-evolution](/brain-metaphor-evolution)
+- [computational-theory-of-mind-critique](/computational-theory-of-mind-critique)
+- [self-memory-system](/self-memory-system)
+- [no-single-substrate](/no-single-substrate)
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
+- [memory-as-substrate-thesis](/memory-as-substrate-thesis)

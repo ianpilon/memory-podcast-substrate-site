@@ -1,0 +1,52 @@
+# Somatic Marker Hypothesis
+
+**Summary**: Antonio Damasio's claim, cited via Youssef, that emotions are prerequisites for rational decisions rather than obstacles to them. The brain reactivates physiological states from past similar decisions; these "somatic markers" bias cognition before conscious deliberation. The third of the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks).
+
+**Sources**: Robert Youssef x post.pdf
+
+**Last updated**: 2026-05-27
+
+---
+
+## The hypothesis
+
+When facing a decision, your brain does not deliberate from scratch. It reactivates physiological states (gut reactions, heart-rate shifts, micro-expressions) from past outcomes of similar decisions. These somatic markers bias cognition **before** conscious deliberation begins. They are emotion as cognitive infrastructure, not emotion as a separable signal (source: Robert Youssef x post.pdf).
+
+This destroys the Western tradition of separating reason from emotion. In Damasio's view, the dichotomy is false: emotions are part of how reason works.
+
+## The Iowa Gambling Task
+
+The empirical anchor. Participants pick cards from four decks, two good (small consistent wins) and two bad (occasional large losses). Normal participants:
+
+- Develop a "hunch" about the bad decks **10-15 trials before** they can articulate it.
+- Show skin conductance spikes before reaching for a bad deck, even before they consciously know.
+
+Patients with ventromedial prefrontal cortex (vmPFC) damage understand the math perfectly when explained. But they keep choosing bad decks. Their somatic markers are gone. Without the emotional signal, the raw reasoning is insufficient.
+
+This is one of the cleanest demonstrations that "body knows before mind knows" in the literature.
+
+## Where it appears in Conway
+
+Conway's [working-self](/working-self) is not framed in Damasio's vocabulary but the conservatism principle has the same flavor. The working self is "conservatist" because goal change is **affectively** costly. Singer and Salovey's "self-defining memories" are described as carrying strong feelings (happiness, pride, sadness, anger) tied to goal attainment or progressive failure. The accessibility of memories is structured by emotional weight.
+
+So Damasio supplies the **mechanism** (somatic reactivation) for what Conway describes at the higher level of analysis (affect-modulated retrieval).
+
+## Where it appears in Levin
+
+Levin invokes "hedonic valence" as one of the things observers bring to interpretation in [memories-as-agents](/memories-as-agents). Levin's framework does not commit to a Damasian mechanism but the role is the same: the observer's affective state is part of how engrams get reinterpreted.
+
+In Lisa Feldman Barrett's [constructed-emotion-barrett](/constructed-emotion-barrett) theory, raised by Benjamin L in the comment thread of [levin-2024-blog-supplement](/levin-2024-blog-supplement), emotion is constructed by the brain attempting to make sense of interoceptive signals. Concepts compete to be the best prediction for achieving allostasis. Affect is the result, not the cause. This is a different mechanism from Damasio's but compatible at the architectural level.
+
+## Why AI memory lacks it
+
+Youssef's diagnosis: "AI agents store frustrated conversations with the same weight as routine queries." There is no implicit prioritization based on emotional salience. The fix: sentiment-scored metadata on memory nodes that biases future behaviour.
+
+This is the most tractable of the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks) to implement. Sentiment classifiers are mature; tagging memory nodes with valence-arousal scores is straightforward. The hard part is using those scores well: emotional memory should not just be **easier to retrieve** but should also shape **what gets stored at all** (Conway's working-self gating) and **how the agent feels about its current state** (Damasio's body-first cognition).
+
+## Related pages
+
+- [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)
+- [working-self](/working-self)
+- [constructed-emotion-barrett](/constructed-emotion-barrett)
+- [memories-as-agents](/memories-as-agents)
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)

@@ -1,0 +1,49 @@
+# Polycomputing
+
+**Summary**: Levin's term for the observer-relative nature of computation in living systems. The same physical process can be read as performing different computations by different observers. Biology exploits this for adaptive reuse, hacking, and evolvability.
+
+**Sources**: Self-Improvising Memory.pdf
+
+**Last updated**: 2026-05-27
+
+---
+
+## The claim
+
+In a polycomputing framework, there is no single objectively correct meaning for a physical process. The same set of physical events can be performing different computations from different observer perspectives. Each subsystem in a body must interpret the actions and outputs of its neighbours and its own parts (source: Self-Improvising Memory.pdf).
+
+This is an observer-first view of living systems. Biological subsystems adaptively make use of each other; within a body, this allows evolution to innovate by adding **new interpretations** of mechanisms, rather than changing the mechanisms themselves.
+
+## Why this matters for evolvability
+
+Evolution by changing existing mechanisms is risky. If a gene that does X is repurposed to do Y, all the systems that depend on X may break. This is catastrophic forgetting and is a problem that plagues machine learning.
+
+Polycomputing avoids the problem. If a mechanism can be **interpreted** differently by a new observer (a new tissue, a new pathway), the original interpretation is preserved for the systems that need it, and the new function emerges without disrupting the old.
+
+Levin proposes this freedom is what biology has and engineered systems generally lack. It is also what hacking depends on: reading existing mechanisms in unintended ways.
+
+## Caterpillar and tail-flank examples
+
+- The same caterpillar-trained associative memory must be re-read by the butterfly. The bioelectric or epigenetic substrate is interpreted differently by a body with different sensors and effectors.
+- Salamander tails grafted onto flanks gradually remodel into limb-like structures. The cells at the tail tip are "correct in their local environment but must change to fit the global pattern." The same cells participate in two different morphological computations across time.
+
+## The read and write sides
+
+Levin notes that polycomputing emphasizes both sides of an interaction:
+
+- The **read** side: agents perceive and interpret others' activity in whichever way they want.
+- The **write** side: agents use this information to optimally direct the behaviour of other systems in ways that bring adaptive benefits.
+
+This is the precondition for [memories-as-agents](/memories-as-agents). An engram can shape future cognition only if it can be read by a different agent than the one that wrote it.
+
+## Engineering analogue
+
+The principle suggests that AI agent memory should be designed for **multi-perspective reinterpretation**, not single-canonical-meaning storage. A memory created in one task should be re-readable in a future task without rewriting it. Vector databases come closer to this than key-value stores (because nearest-neighbor search is interpretation-flexible), but neither implements the active write-side that biology has.
+
+## Related pages
+
+- [memories-as-agents](/memories-as-agents)
+- [mnemonic-improvisation](/mnemonic-improvisation)
+- [bowtie-architecture](/bowtie-architecture)
+- [no-single-substrate](/no-single-substrate)
+- [memory-as-substrate-thesis](/memory-as-substrate-thesis)

@@ -1,0 +1,76 @@
+{
+  "index": "Home",
+  "-- thesis --": {
+    "type": "separator",
+    "title": "Central Thesis"
+  },
+  "memory-as-substrate-thesis": "Memory as Substrate Thesis",
+  "-- conway --": {
+    "type": "separator",
+    "title": "Conway / Self-Memory System"
+  },
+  "self-memory-system": "Self-Memory System",
+  "working-self": "Working Self",
+  "autobiographical-knowledge-base": "Autobiographical Knowledge Base",
+  "episodic-memory": "Episodic Memory",
+  "coherence-vs-correspondence": "Coherence vs Correspondence",
+  "reminiscence-bump": "Reminiscence Bump",
+  "retrieval-models": "Retrieval Models",
+  "autonoetic-consciousness": "Autonoetic Consciousness",
+  "-- levin --": {
+    "type": "separator",
+    "title": "Levin / Substrate Framework"
+  },
+  "mnemonic-improvisation": "Mnemonic Improvisation",
+  "memories-as-agents": "Memories as Agents",
+  "bowtie-architecture": "Bowtie Architecture",
+  "polycomputing": "Polycomputing",
+  "self-as-process": "Self as Process",
+  "no-single-substrate": "No Single Substrate",
+  "confabulation-as-feature": "Confabulation as Feature",
+  "gestalt-over-fidelity": "Gestalt over Fidelity",
+  "-- synthesis --": {
+    "type": "separator",
+    "title": "Synthesis and AI Bridges"
+  },
+  "ai-memory-as-identity-construction": "AI Memory as Identity Construction",
+  "five-principles-ai-memory-lacks": "Five Principles AI Memory Lacks",
+  "somatic-marker-hypothesis": "Somatic Marker Hypothesis",
+  "narrative-coherence": "Narrative Coherence",
+  "co-emergent-self-model": "Co-Emergent Self-Model",
+  "constructed-emotion-barrett": "Constructed Emotion (Barrett)",
+  "-- clinical --": {
+    "type": "separator",
+    "title": "Clinical and Case Studies"
+  },
+  "clive-wearing": "Clive Wearing",
+  "ptsd-and-memory-distortion": "PTSD and Memory Distortion",
+  "-- critique --": {
+    "type": "separator",
+    "title": "Brain vs LLM Critique"
+  },
+  "brain-metaphor-evolution": "Brain Metaphor Evolution",
+  "computational-theory-of-mind-critique": "Computational Theory of Mind: Critique",
+  "meso-level-theory-gap": "Meso-Level Theory Gap",
+  "-- sources --": {
+    "type": "separator",
+    "title": "Source Summaries"
+  },
+  "conway-2005-memory-and-self": "Conway 2005",
+  "levin-2024-self-improvising-memory": "Levin 2024 paper",
+  "levin-2024-blog-supplement": "Levin 2024 blog",
+  "youssef-2026-psychology-and-ai-memory": "Youssef 2026",
+  "galois-promise-of-agi-neuroscience": "Galois: Promise of AGI",
+  "galois-is-your-technology-human-ready": "Galois: Human-Ready Tech",
+  "-- outlier --": {
+    "type": "separator",
+    "title": "Outlier"
+  },
+  "human-factors-engineering": "Human Factors Engineering",
+  "-- process --": {
+    "type": "separator",
+    "title": "Process"
+  },
+  "log": "Log",
+  "open-questions": "Open Questions"
+}

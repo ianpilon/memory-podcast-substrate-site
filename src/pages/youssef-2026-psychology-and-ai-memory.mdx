@@ -1,0 +1,60 @@
+# Youssef 2026: Psychology Solved the AI Memory Problem
+
+**Summary**: Robert Youssef's X post arguing that current AI agent memory architectures fail because they treat memory as storage rather than identity construction. He synthesizes Conway, Damasio, Rathbone, Bruner, and Klein and Nichols, then derives five concrete principles current AI memory lacks.
+
+**Sources**: Robert Youssef x post.pdf (3:29 PM, 21 Feb 2026)
+
+**Last updated**: 2026-05-27
+
+---
+
+## The synthesis
+
+Youssef stitches several psychology threads into one argument (source: Robert Youssef x post.pdf):
+
+- Conway's SMS: memory is goal-organized and bidirectionally coupled to the self ([conway-2005-memory-and-self](/conway-2005-memory-and-self)).
+- Damasio's [somatic-marker-hypothesis](/somatic-marker-hypothesis): emotions are prerequisites for rational decisions, not obstacles. The body knows before the mind knows.
+- Rathbone et al. (2008): autobiographical memories cluster around identity transitions, not around random life events. The [reminiscence-bump](/reminiscence-bump) is where core self-images form.
+- Madan (2024) Episodic Future Thinking: memory is predictive, not just retrospective. You use who you were to project who you might become.
+- Bruner: narrative is the glue holding episodes into a coherent self over time.
+- Klein and Nichols: identity and memory bootstrap each other through a feedback loop.
+
+The composite claim: **identity equals memories organized by emotional significance, structured around self-images, continuously reconstructed to maintain narrative coherence.**
+
+## How current AI memory fails
+
+Youssef inventories the architectures and what each loses:
+
+- Vector databases (RAG): flat embedding space with no hierarchy, no emotional weighting, no goal filtering. Past 10k documents, semantic search becomes a coin flip.
+- Conversation summaries: compress autobiography into a one-paragraph bio.
+- Key-value stores: reduce identity to a lookup table.
+- Episodic buffers: 30-second memory span. Enough to operate but not to construct identity.
+
+The [clive-wearing](/clive-wearing) case is his anchor: an episodic system can be destroyed entirely yet emotional and procedural memory survive, and a person can still operate. But they cannot construct a continuous identity.
+
+## Five principles AI memory lacks
+
+See [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks) for the full breakdown. Briefly:
+
+1. **Hierarchical temporal organization** (Conway): epochs → themes → exchanges, not flat search.
+2. **Goal-relevant filtering** (Conway's [working-self](/working-self)): a dynamic current-task gate on retrieval.
+3. **Emotional weighting** (Damasio): sentiment-scored metadata that biases future behaviour.
+4. **Narrative coherence** (Bruner): a story layer that synthesizes memories into a relational arc.
+5. **Co-emergent self-model** (Klein and Nichols): not "what I know about this user" but "who I am in this relationship."
+
+## The paradigm shift
+
+Youssef's framing: "stop building agent memory as a retrieval system. Start building it as an identity system." This is the load-bearing AI claim of the wiki and the explicit bridge from psychology to engineering. See [ai-memory-as-identity-construction](/ai-memory-as-identity-construction).
+
+## Why this matters
+
+This is the only source in the corpus that does the cross-domain synthesis explicitly. It is also the most actionable for engineers. Treat it as the engineering-side counterpart to Conway (psychology side) and Levin (biology side) in the [memory-as-substrate-thesis](/memory-as-substrate-thesis).
+
+## Related pages
+
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
+- [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)
+- [somatic-marker-hypothesis](/somatic-marker-hypothesis)
+- [narrative-coherence](/narrative-coherence)
+- [clive-wearing](/clive-wearing)
+- [memory-as-substrate-thesis](/memory-as-substrate-thesis)

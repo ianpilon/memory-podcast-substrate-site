@@ -1,0 +1,62 @@
+# Co-Emergent Self-Model
+
+**Summary**: The fifth of the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks). From Klein and Nichols via Youssef: human identity and memory bootstrap each other through a feedback loop. AI agents have no self-model that evolves. The engineering fix shifts the agent's representation from "what I know about this user" to "who I am in this relationship."
+
+**Sources**: Robert Youssef x post.pdf
+
+**Last updated**: 2026-05-27
+
+---
+
+## The bootstrap
+
+In Klein and Nichols's framing (cited by Youssef), the self and autobiographical memory are not separable phenomena that interact. They are co-constructed (source: Robert Youssef x post.pdf):
+
+- The self emerges from patterns in memory (what I have done is who I am).
+- Memory is shaped by the current self (the [working-self](/working-self) gates what is encoded and retrieved).
+
+Each iteration produces a slightly different self and a slightly different memory. The feedback loop is the self-construction process. This is the most explicit form of the bidirectional coupling in Conway's [self-memory-system](/self-memory-system).
+
+## Where AI agents fail
+
+Most current AI agents are stateless or near-stateless. A chatbot session ends and the agent does not persist. Even agents with memory typically have:
+
+- A static system prompt (the "personality").
+- A user model (facts and preferences accumulated about the user).
+- A conversation history (recent exchanges).
+
+What is missing is a **self-model that evolves through the interaction**. The agent does not become a different agent through its history with a user. The user model grows; the agent does not.
+
+Youssef's reframe: stop modeling "what the agent knows about the user" and start modeling "who the agent is in this relationship." Different users should produce different agent-selves, and those selves should accrete over time.
+
+## The hard part
+
+This is more philosophically loaded than the other four principles. It implies that agents have a self at all, which most current systems explicitly deny. It also requires picking a substrate for the self:
+
+- **As prompt**: the agent identity is a system prompt that updates with experience. Simple but limited; prompts cannot easily grow into rich self-models.
+- **As learned weights**: fine-tune the model on accumulated interactions. Powerful but slow, expensive, and risks drift.
+- **As external structured memory**: an explicit self-state object updated by the agent's reflection step. Flexible but requires a reflection protocol that current agents do not have.
+- **As emergent in a long context**: with million-token contexts, the agent's self can be implicit in the conversation history. But Youssef's diagnosis is that this is exactly what fails past 10k documents.
+
+None of the existing approaches cleanly supports co-emergence. This may be why the principle is the least implemented of the five.
+
+## Connection to Levin and Jung
+
+The [memories-as-agents](/memories-as-agents) view in Levin is the strongest version of co-emergence. Engrams are agential structures that **constitute the self** that holds them. Jung's Philemon (raised in the [levin-2024-blog-supplement](/levin-2024-blog-supplement) comment thread) is a folk-psychological version of the same insight: the contents of one's psyche have their own agency and contribute to who one is.
+
+Internal Family Systems (IFS) therapy is another folk-clinical version: the mind has parts, those parts have minds of their own, and therapy is in part communication with them. Levin notes the IFS connection as "likely quite relevant."
+
+## Engineering implication
+
+The co-emergent self-model is probably the highest-leverage principle to get right, and also the hardest. Done well, it would mean an agent that is genuinely different at month 12 of a user relationship than at month 1, in ways that the user experiences as "the agent has learned me" and "I have changed it."
+
+Done badly, it produces drift, sycophancy, or personality collapse. This is why Anthropic, OpenAI, and others have largely avoided shipping deeply personalized agent selves. Solving the principle well is plausibly a research-level problem.
+
+## Related pages
+
+- [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)
+- [self-memory-system](/self-memory-system)
+- [working-self](/working-self)
+- [memories-as-agents](/memories-as-agents)
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
+- [memory-as-substrate-thesis](/memory-as-substrate-thesis)

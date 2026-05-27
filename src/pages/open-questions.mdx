@@ -1,0 +1,71 @@
+# Open Questions
+
+**Summary**: Contradictions between sources, load-bearing assumptions that need further work, and flags for follow-up. Maintained as an explicit list rather than buried in concept pages.
+
+**Last updated**: 2026-05-27
+
+---
+
+## Contradictions across sources
+
+### 1. Substrate specificity: how localized is memory?
+
+- **Conway** (psychology): SMS construction has specific neuroanatomy (fronto-temporal control, anterior-temporal conceptual, posterior occipital-temporal episodic; hippocampus as bridge). Lesion data supports specific anatomical claims.
+- **Levin** (biology): [no-single-substrate](/no-single-substrate). Synaptic machinery is for interpretation, not storage. Memory is distributed across bioelectric, biomechanical, biochemical reservoirs at all scales.
+- **Galois** (critique): silicon connectionist nets miss at least 5 features of biological brains. Substrate matters but the article does not commit to substrate-agnostic memory.
+
+**Status**: not resolvable from the current corpus. Conway and Levin are partially compatible if Conway's claims are read as "this is what we see in vertebrate clinical cases" and Levin's as "this is the underlying multi-scale architecture." But the engineering implications diverge: Conway's framework can guide synapse-mimicking AI; Levin's pushes toward reservoir computing, dynamics-based memory, and substrate flexibility.
+
+### 2. Confabulation: default or pathology?
+
+- **Conway**: in healthy adults, recent episodic memory is biased toward correspondence (faithful tracking). Coherence-driven distortion is a regulated process that the working self uses for stability. PTSD distortion and frontal confabulation are control failures of an otherwise correspondence-tracking system.
+- **Levin**: [confabulation-as-feature](/confabulation-as-feature). Active reinterpretation is the default at all timescales. Retinal blind-spot filling, color phi, anatomical remodel are all "confabulation" and all healthy.
+
+**Status**: probably compatible at different levels of analysis. Conway is describing the regulated vertebrate SMS; Levin is describing the cross-scale reinterpretation engine beneath. The disagreement is about rhetorical center of gravity and engineering implications, not about empirical facts. The wiki treats both as load-bearing.
+
+### 3. AI memory: principles enough, or substrate too?
+
+- **Youssef**: five psychology-derived principles ([five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)) are sufficient to redesign AI agent memory.
+- **Levin** (implicit, via [no-single-substrate](/no-single-substrate) and [bowtie-architecture](/bowtie-architecture)): the substrate must support active reinterpretation, which most current AI substrates do not. Five principles on top of a vector database may be necessary but not sufficient.
+
+**Status**: open. Worth tracking whether implementations of the five principles produce meaningfully better agent memory or whether the substrate floor (LLM + vector DB) caps the achievable identity-coherence.
+
+## Load-bearing assumptions
+
+### A. Synaptic machinery is for interpretation, not storage
+
+Levin asserts this in [levin-2024-blog-supplement](/levin-2024-blog-supplement) but it contradicts mainstream neuroscience. Most of his evidence is from invertebrates (caterpillar metamorphosis, Aplysia, planaria). Vertebrate clinical evidence (amnesia, hippocampal damage) supports specific-substrate storage. This is the highest-stakes claim in the wiki and would be worth a podcast episode dedicated to vertebrate-specific evidence.
+
+### B. The reminiscence bump generalizes to identity transitions
+
+Conway's bump finding is robust across cultures. Youssef extends it via Rathbone et al. (2008) to claim memories cluster around **identity transitions** specifically. The bump is correlated with the adolescent identity-formation window, but whether it generalizes to non-adolescent identity transitions (e.g., a 50-year-old changing careers) is less clear from this corpus.
+
+### C. Narrative coherence has no clean engineering mapping
+
+[narrative-coherence](/narrative-coherence) is the fuzziest of the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks). The wiki notes this but does not propose a mapping. Worth tracking: are there research projects implementing narrative layers in agent memory that have published results?
+
+## Source-fit flags
+
+### Is-Your-Technology-Human-Ready loose fit
+
+[galois-is-your-technology-human-ready](/galois-is-your-technology-human-ready) is the loosest fit in the corpus. The other five sources are about memory and identity; this one is about deployment ergonomics. The page makes the case that HFE is relevant when shipping memory-as-identity agents, but the connection is downstream rather than upstream. If the wiki gets pruned, this is the first candidate.
+
+## Topics introduced but not developed
+
+These are referenced in the corpus and worth potential follow-up sources:
+
+- **Internal Family Systems (IFS) therapy**. Raised in the [levin-2024-blog-supplement](/levin-2024-blog-supplement) thread as a folk-clinical version of [memories-as-agents](/memories-as-agents). Levin: "likely quite relevant."
+- **Jung's Philemon**. Raised by Mirka Misáková as Jung's personal experience of sub-agential communication. Folk-historical version of the same idea.
+- **Reservoir computing**. Levin cites it as the engineering analogue for [no-single-substrate](/no-single-substrate). Not developed in the wiki because no source goes into it.
+- **Predictive processing / active inference / free-energy principle**. Friston is cited in Levin's references. The connection to [constructed-emotion-barrett](/constructed-emotion-barrett) and [memories-as-agents](/memories-as-agents) would benefit from a dedicated source.
+- **Lisa Feldman Barrett's constructed-emotion theory**. Surfaced in the comments. A primary Barrett source would strengthen [constructed-emotion-barrett](/constructed-emotion-barrett).
+- **Rathbone et al. (2008) on identity transitions**. Cited by Youssef but not in the corpus.
+- **Madan (2024) on Episodic Future Thinking**. Cited by Youssef but not in the corpus.
+
+## Related pages
+
+- [memory-as-substrate-thesis](/memory-as-substrate-thesis)
+- [no-single-substrate](/no-single-substrate)
+- [confabulation-as-feature](/confabulation-as-feature)
+- [coherence-vs-correspondence](/coherence-vs-correspondence)
+- [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)

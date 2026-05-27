@@ -1,0 +1,57 @@
+# Computational Theory of Mind: Critique
+
+**Summary**: The Galois article's five-point critique of the computational theory of mind (CTM) as applied to LLMs. Even granting that mental states are realized through computation, current neural net architectures share too few features with biological brains to be called brain-like.
+
+**Sources**: The promise-of-agi-neuroscience.pdf
+
+**Last updated**: 2026-05-27
+
+---
+
+## What CTM claims
+
+The computational theory of mind holds that mental states and processes are realized through computation. Symbolic and connectionist approaches both fall under CTM: both assume that intelligence in the brain is a computational phenomenon that can be modeled as such (source: The promise-of-agi-neuroscience.pdf).
+
+The Galois piece does not reject CTM outright. It argues that even if CTM is true, **massive connectionist nets like LLMs are not brain-like**. Multiple realizability allows for cognition on many substrates; the substrate that LLMs run on may not be one of them, or may need significant architectural revision.
+
+## The five points
+
+### 1. Neurons are not dumb integrators
+
+The textbook neural net model treats each neuron as a weighted-sum-then-threshold unit. Recent neuroscience (Gidon et al. 2020) shows single human cortical neurons can solve the XOR problem, which requires nonlinear computation that classical neural nets need a hidden layer to perform. Single neurons have far richer computational capacity than the McCulloch-Pitts model.
+
+### 2. Synaptic plasticity is hardware-level
+
+Neural net training changes weight values. Biological synapses change at the physical level: new synaptic processes grow and extend from neurons, or wither, depending on experience. Pre- and post-synaptic ends physically enlarge with learning. Neurogenesis adds entirely new neurons in hippocampus and piriform cortex. The brain rewires its hardware; neural nets only retune the same architecture.
+
+### 3. Cellular diversity
+
+Visual cortex V1 alone has 50 distinct interneuron types. Neurons vary widely both morphologically and functionally. Synapses also vary: while axo-dendritic is the canonical pattern, axo-axonic and dendro-dendritic connections also exist. Neural nets use homogeneous units, which loses this diversity.
+
+### 4. Glial cells
+
+Glial cells outnumber neurons in the brain 3:1. Once thought purely supportive, they actively participate in learning and synaptic plasticity. Neural nets have no glial-cell analogue; the supporting infrastructure is just absent.
+
+### 5. Whole-brain integration
+
+Human intelligence is a property of the whole brain working in concert, not a special property of the neocortex. Multiple subcortical systems support different complex cognitions in parallel with cortex. AI overemphasizes cortex, possibly because its 6-layer organization maps cleanly to neural net architectures, while subcortical structures do not.
+
+## What this means for substrate
+
+Each of the five points implies that the relevant **substrate** for cognition includes biological details that connectionist nets do not implement. This is one half of [brain-metaphor-evolution](/brain-metaphor-evolution)'s caution: LLMs are not brain-like enough to bet AGI on by default.
+
+This also creates a tension with [no-single-substrate](/no-single-substrate) (Levin). Levin says any reservoir can be a memory substrate if it can be interpreted. The Galois piece implies that specific substrate properties (cellular diversity, hardware plasticity, glial participation) are doing important work and cannot be abstracted away.
+
+These can be reconciled. Levin's claim is that memory is not localized to one tissue, not that any random substrate will work. The substrates biology uses are specific (bioelectric, biomechanical, biochemical). The Galois piece is arguing that **silicon connectionist nets** are not in that family. Both could be right.
+
+## The "hold your horses" thrust
+
+The Galois piece is named "or 'Hold your Horses'" and the rhetorical point is to slow down AGI claims. Theories from cognitive psychology, cognitive neuroscience, psychometrics, and philosophy of mind are largely absent from current AI research. Without them, the field is doing what the 19th century telegraph theorists did: extrapolating from the current technology metaphor without checking against the underlying biology.
+
+## Related pages
+
+- [brain-metaphor-evolution](/brain-metaphor-evolution)
+- [meso-level-theory-gap](/meso-level-theory-gap)
+- [no-single-substrate](/no-single-substrate)
+- [galois-promise-of-agi-neuroscience](/galois-promise-of-agi-neuroscience)
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)

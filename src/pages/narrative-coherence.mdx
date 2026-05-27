@@ -1,0 +1,52 @@
+# Narrative Coherence
+
+**Summary**: Jerome Bruner's claim, cited via Youssef, that narrative is the glue that holds episodic memories into a continuous self. Identity equals memories organized into a story that maintains consistency across time. The fourth of the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks).
+
+**Sources**: Robert Youssef x post.pdf, Conway_2005.pdf (related)
+
+**Last updated**: 2026-05-27
+
+---
+
+## The claim
+
+Bruner argued that humans organize memories into narratives. Disparate episodes acquire meaning through their placement in a story that maintains a consistent self across time. Narrative is not optional decoration on top of memory; it is the structural form by which discrete episodes become a self-history (source: Robert Youssef x post.pdf).
+
+## Where it appears in Conway
+
+Conway does not use Bruner's term but the SMS implements the same idea. The [autobiographical-knowledge-base](/autobiographical-knowledge-base) is hierarchically organized with **life story** at the top (the most abstract narrative level), themes below it, and specific episodes at the base. The [working-self](/working-self)'s conservatism principle is precisely a commitment to narrative consistency: prefer distortion over goal-revision because revising the narrative destabilizes identity.
+
+The [reminiscence-bump](/reminiscence-bump) is also a narrative phenomenon. The events that get preserved are the transitions, the moments where the story turned. Routine events without narrative weight do not stick.
+
+## Where it appears in Levin
+
+Less explicit but the [bowtie-architecture](/bowtie-architecture) implies it. After compression, the decoder must creatively re-inflate the engram. Coherence with the current Self's perspective is the constraint that picks among possible re-inflations. Without narrative, no one re-inflation is preferred over another and the engram is meaningless.
+
+Levin quotes John Truby in the paper: "A great story is organic, not a machine but a living body that develops." Levin uses this to argue that the development of an organism is itself a kind of dynamic elaboration of an anatomical story.
+
+## Why AI memory lacks it
+
+Youssef's diagnosis: "AI agents have zero narrative. Each interaction exists independently." Vector retrieval finds semantically similar items, not narratively connected ones. Conversation summaries compress the autobiography into a paragraph, losing the structure that makes the past load-bearing.
+
+His proposed fix: a narrative layer that synthesizes memories into a relational story that influences responses. Not just "what does the user want?" but "what story am I in with this user?"
+
+## Engineering challenges
+
+Implementing a narrative layer is harder than implementing the other four principles:
+
+- Hierarchical organization (principle 1) maps cleanly to nested data structures.
+- Goal filtering (principle 2) maps to a planner or current-task-context attention gate.
+- Emotional weighting (principle 3) maps to sentiment scores on memory nodes.
+- Co-emergent self-model (principle 5) maps to an evolving system prompt or agent identity.
+- **Narrative coherence** has no clean mapping. It requires either a separately trained narrative summarization model, periodic LLM-based narrative review of accumulated memory, or some learned representation that captures story structure.
+
+This is the fuzziest of the five principles and the most likely to be the bottleneck for the [ai-memory-as-identity-construction](/ai-memory-as-identity-construction) paradigm.
+
+## Related pages
+
+- [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)
+- [self-memory-system](/self-memory-system)
+- [autobiographical-knowledge-base](/autobiographical-knowledge-base)
+- [working-self](/working-self)
+- [co-emergent-self-model](/co-emergent-self-model)
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
