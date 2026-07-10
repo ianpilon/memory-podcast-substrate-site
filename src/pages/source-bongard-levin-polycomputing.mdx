@@ -1,0 +1,64 @@
+# Bongard & Levin: Polycomputing
+
+**Summary**: A 2023 position paper by Joshua Bongard and Michael Levin that defines **polycomputing** as the ability of the same substrate to simultaneously compute different things, and argues that overloading multiple functions onto the same hardware is a fundamental design principle of both evolved and engineered systems. For this wiki it is the source that closes the substrate-flexibility gap: it shows Levin's no-single-substrate layer is not a biological curiosity but a property already present in engineered materials, and it names the engineering analogues ([engineered-substrate-flexibility](/engineered-substrate-flexibility)).
+
+**Sources**: Polycomputing - Room Right Here.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## What the paper argues
+
+Living systems do many things in the same place at the same time. The authors call this **polycomputing**: the same physical substrate simultaneously computes different things and makes those results available to different observers. They argue this is not a defect to be abstracted away but a design principle that explains evolvability, robustness, and morphological problem-solving, and that the same principle is beginning to appear in engineered materials.
+
+The paper's central methodological move is **observer-dependence**. Whether something is computing is not a philosophical question with an objective answer; it is settled pragmatically, by specifying a computational frame and showing empirically what new prediction and control it buys. Crucially, the observers need not be human scientists. In a body, each subsystem is simultaneously an observer and a hacker, interpreting and exploiting its neighbours in parallel. Life polycomputes because it is a set of overlapping, competing, cooperating nested agents, each exploiting its microenvironment (source: Polycomputing - Room Right Here.pdf, section 1.4).
+
+## Why this paper is in the wiki
+
+The wiki's highest-stakes open question ([open-questions](/open-questions), section 3, and load-bearing assumption A) is whether Levin's substrate-flexibility layer is reachable at all in engineered systems, or whether it is a biological property that connectionist nets and JSONL stores can only imitate at the functional level. The existing [no-single-substrate](/no-single-substrate) and [polycomputing](/polycomputing) pages rest this claim on Levin's memory paper, where it is asserted rather than demonstrated in engineering.
+
+This paper is the dedicated source for both concepts and it changes the status of the open question. Section 3 ("Learning from Superposed Systems in Engineering") reviews engineered systems that already compute and store multiple results in the same locality, and section 5.2 names the immediate AI payoff. The claim "engineered systems generally lack this" is sharpened: engineered polycomputing substrates exist and are an active design target, but they are early and have no programming language yet. See [engineered-substrate-flexibility](/engineered-substrate-flexibility).
+
+## The engineering analogues (section 3)
+
+The paper reviews four families of engineered superposition, summarized on [engineered-substrate-flexibility](/engineered-substrate-flexibility):
+
+1. **Non-quantum polycomputing metamaterials.** One of the authors (Bongard) showed that a material of roughly 30 parts can compute two Boolean functions (AND and XOR) in the same place at the same time, without quantum effects. Polycomputing does not require quantum superposition.
+2. **Holographic data storage.** Data is etched as a distributed representation across the medium; the same locality holds parts of many data, retrieved by illuminating from different directions.
+3. **Physical reservoir computing (PRC).** Inert bulk materials (metal plates, photonic crystals) are excited and the resulting vibrations or refracted light are read out. "Deep physical neural networks" push input and parameters into the material as forces and read the response back as a network output; the material's internal structure is not changed during training, so the same material can embody different computations.
+4. **Memory materials and soft robotics.** Materials that retain an imprint of forces after they cease, designed to maximize the number of overlapping memories they store; and soft robots in which the same body parts simultaneously sense, actuate, compute, and store energy.
+
+## The biological examples (sections 2.4, 4)
+
+The paper grounds polycomputing in biology to motivate the engineering claims:
+
+- Nervous systems may polycompute too: neurons communicate mechanically as well as electrically and chemically, which plausibly contains vibrational components. The brain/body line cannot be saved by "bodies polycompute, brains do not."
+- Bioelectric dynamics in brains are speed-optimized versions of ancient bioelectrical computations that navigated anatomical and physiological space long before brains existed.
+- The ectopic tadpole eye (on the tail) still sees, connecting to the spinal cord rather than the brain. The substrate's competency neutralizes lethal mutation side-effects and lets evolution explore other effects in parallel.
+- Gene regulatory networks probed as Pavlovian learning circuits show latent memory capacity; the **same network offers multiple different memory and computation types depending on which nodes the observer reads as knobs and readouts**. This is the operational form of the read-side reinterpretation claim ([polycomputing](/polycomputing)): search not for how to rewire a system, but for the perspective from which an unmodified system already embodies the function you want.
+
+## The catastrophic-interference payoff (section 5.2)
+
+The paper names four practical reasons to build polycomputing into AI and robotics. The fourth is the one most directly relevant to this wiki's engineering layer: polycomputing may offer a new solution to **catastrophic interference** (catastrophic forgetting), the problem that an agent can only learn something new at the cost of forgetting something it already knows. A polycomputing agent could store a new behaviour at an underutilized place on its substrate's frequency spectrum rather than overwriting an existing one, analogous to cognitive radio seeking empty frequency bands.
+
+This is the strongest engineering hook for connecting the Levin layer to the identity-persistence thesis: catastrophic forgetting is exactly the failure mode that makes an agent lose identity over time on a conventional substrate. See [memory-as-construction-thesis](/memory-as-construction-thesis).
+
+## What the paper does not resolve
+
+It is a position paper, not a measured benchmark. It argues reachability and names analogues; it does not show a deployed polycomputing memory store beating a vector database on an agent task. That measured engineering test is still open (and is the gap NapMem and the Proactive Memory Agent address at the functional level, not the substrate level). The paper also acknowledges that no programming language has yet been devised for polycomputational metamaterials, so the practical tooling is absent.
+
+## Citation
+
+Joshua Bongard and Michael Levin (2023). "There's Plenty of Room Right Here: Biological Systems as Evolved, Overloaded, Multi-scale Machines." Biomimetics, 8(2): 110. arXiv:2212.10675.
+
+## Related pages
+
+- [engineered-substrate-flexibility](/engineered-substrate-flexibility)
+- [polycomputing](/polycomputing)
+- [no-single-substrate](/no-single-substrate)
+- [mnemonic-improvisation](/mnemonic-improvisation)
+- [memories-as-agents](/memories-as-agents)
+- [bowtie-architecture](/bowtie-architecture)
+- [memory-as-construction-thesis](/memory-as-construction-thesis)
+- [open-questions](/open-questions)

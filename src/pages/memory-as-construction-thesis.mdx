@@ -2,7 +2,7 @@
 
 **Summary**: The central synthesis of the wiki. Five converging arguments (Conway in psychology, Levin in biology, Youssef, NapMem, and the Proactive Memory Agent in AI engineering) that **memory is not storage to be retrieved; it is the construction process by which an agent persists across time**. The frameworks disagree on substrate-specificity but agree on the function: memory is something you do. Navigation and intervention are the access mechanisms within it.
 
-**Sources**: Conway_2005.pdf, Self-Improvising Memory.pdf, Robert Youssef x post.pdf, Memory as an Action Space.pdf, Proactive Memory Agent.pdf
+**Sources**: Conway_2005.pdf, Self-Improvising Memory.pdf, Robert Youssef x post.pdf, Memory as an Action Space.pdf, Proactive Memory Agent.pdf, Polycomputing - Room Right Here.pdf
 
 **Last updated**: 2026-07-10
 
@@ -38,6 +38,10 @@ NapMem tests the active-use claim directly. It reframes long-term user memory as
 
 The Proactive Memory Agent sharpens the claim one step further. It separates memory from the action agent entirely: a [dedicated memory agent](/proactive-memory-agent) maintains a structured bank and decides whether to inject a reminder or stay silent. Its core reframe is [memory-as-intervention](/memory-as-intervention), and it names the failure mode both prior sources miss: [behavioral-state-decay](/behavioral-state-decay), where decision-relevant state stops influencing the next action even when still in context. Its ablation shows the win lives in [selective-intervention](/selective-intervention), the decision not to interrupt, which beats passive full-bank exposure and always-on injection (source: Proactive Memory Agent.pdf). See [source-proactive-memory](/source-proactive-memory).
 
+### Substrate: is the Levin layer reachable in engineering? (Bongard & Levin)
+
+NapMem and the Proactive Memory Agent prove the functional layer works on an ordinary substrate; they do not test whether genuine substrate flexibility is reachable in engineered systems. That gap is addressed by a third source: Bongard & Levin's polycomputing paper ([source-bongard-levin-polycomputing](/source-bongard-levin-polycomputing)). It defines [polycomputing](/polycomputing) as one substrate simultaneously computing different things for different observers, and reviews engineered systems that already do this (polycomputing metamaterials, physical reservoir computing, holographic storage, memory materials, soft robotics). The honest verdict flips: Levin's layer is reachable in engineered systems, early and un-tooled but real. The remaining open question is not reachability but whether a deployed polycomputing store beats a conventional one on an agent-memory benchmark. See [engineered-substrate-flexibility](/engineered-substrate-flexibility).
+
 ## What the five agree on
 
 1. **Memory is functional, not archival.** Its purpose is agent-persistence, not record-keeping.
@@ -62,7 +66,7 @@ If the thesis is right, then building useful AI agent memory requires:
 - A narrative layer that synthesizes memories into an evolving self-model ([narrative-coherence](/narrative-coherence) and [co-emergent-self-model](/co-emergent-self-model)).
 - Tolerance for and active use of substrate flexibility (Levin's [polycomputing](/polycomputing) and [no-single-substrate](/no-single-substrate)).
 
-The first four are roughly the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks), and NapMem shows the first two deliver measurable gains on their own. The fifth is the Levin layer that Youssef's piece and NapMem do not directly address. See [open-questions](/open-questions) for the unresolved question of whether engineered substrates can support the Levin layer at all.
+The first four are roughly the [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks), and NapMem shows the first two deliver measurable gains on their own. The fifth is the Levin layer (substrate flexibility), which the polycomputing source ([source-bongard-levin-polycomputing](/source-bongard-levin-polycomputing)) now shows is reachable in engineered materials via physical reservoir computing and polycomputing metamaterials, even though no programming language or deployed agent-memory benchmark exists yet. See [open-questions](/open-questions) for what stays unresolved.
 
 ## Reconciling biological and AI memory
 
@@ -76,6 +80,8 @@ The thesis is deliberately function-level so it can hold for both biological and
 - [youssef-2026-psychology-and-ai-memory](/youssef-2026-psychology-and-ai-memory)
 - [source-napmem](/source-napmem)
 - [source-proactive-memory](/source-proactive-memory)
+- [source-bongard-levin-polycomputing](/source-bongard-levin-polycomputing)
+- [engineered-substrate-flexibility](/engineered-substrate-flexibility)
 - [schleisman-promise-of-agi-neuroscience](/schleisman-promise-of-agi-neuroscience)
 - [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
 - [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)

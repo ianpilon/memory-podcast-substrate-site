@@ -28,6 +28,7 @@
   "polycomputing": "Polycomputing",
   "self-as-process": "Self as Process",
   "no-single-substrate": "No Single Substrate",
+  "engineered-substrate-flexibility": "Engineered Substrate Flexibility",
   "confabulation-as-feature": "Confabulation as Feature",
   "gestalt-over-fidelity": "Gestalt over Fidelity",
   "-- synthesis --": {
@@ -79,6 +80,7 @@
   "youssef-2026-psychology-and-ai-memory": "Youssef 2026",
   "source-napmem": "NapMem: Action Space",
   "source-proactive-memory": "Proactive Memory (Meta)",
+  "source-bongard-levin-polycomputing": "Polycomputing (Bongard & Levin)",
   "schleisman-promise-of-agi-neuroscience": "Schleisman: Promise of AGI",
   "-- process --": {
     "type": "separator",
