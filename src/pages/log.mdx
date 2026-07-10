@@ -105,3 +105,12 @@ Pages created (5):
 1. New architectural tension (#4): monolithic navigation (NapMem, one trained model does both jobs) vs separate intervention agent (this paper, unmodified action agent plus cheaper sidecar). Not head-to-head; implies different deployment bets. The split is easier against frontier closed models and lets the memory agent be sized independently.
 2. Behavioral state decay is a distinct failure mode from forgetting: the information is present but behaviorally inactive. Adds a control/timing dimension the prior sources did not name.
 3. The open-weight fine-tune (Qwen3.5-27B with SFT+GRPO) is preliminary. Whether a cheaper memory agent can learn well-calibrated silence on constrained hardware is an open deployment question.
+
+### Prune: Is-Your-Technology-Human-Ready (the flagged outlier)
+
+- Removed `schleisman-is-your-technology-human-ready` and its derived concept page `human-factors-engineering`.
+- This was the corpus's only flagged loose fit (deployment ergonomics, not memory) and the wiki's own open-questions page had named it as the first prune candidate since the initial ingest.
+- The concept page existed solely from this source and had no inbound links except the index, so it came out with the source.
+- Source count 8 -> 7. Page count 43 -> 41.
+- Raw/Is-your-technology-human-ready.pdf retained in `Raw/` (immutable by vault rules) for provenance.
+- The source-fit flags section in [open-questions](/open-questions) is removed; the flag is resolved by the prune.

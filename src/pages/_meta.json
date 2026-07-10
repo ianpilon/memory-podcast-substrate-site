@@ -80,12 +80,6 @@
   "source-napmem": "NapMem: Action Space",
   "source-proactive-memory": "Proactive Memory (Meta)",
   "schleisman-promise-of-agi-neuroscience": "Schleisman: Promise of AGI",
-  "schleisman-is-your-technology-human-ready": "Schleisman: Human-Ready Tech",
-  "-- outlier --": {
-    "type": "separator",
-    "title": "Outlier"
-  },
-  "human-factors-engineering": "Human Factors Engineering",
   "-- process --": {
     "type": "separator",
     "title": "Process"
