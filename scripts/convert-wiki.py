@@ -11,7 +11,7 @@ import re
 import sys
 from pathlib import Path
 
-WIKI_DIR = Path("/Users/ianpilon/Documents/Obsidian Vault/memory-as-navigation/Wiki")
+WIKI_DIR = Path("/Users/ianpilon/Documents/Obsidian Vault/memory-as-construction/Wiki")
 OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "pages"
 SKIP = {"index.md"}
 

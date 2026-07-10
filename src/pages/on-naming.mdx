@@ -1,6 +1,6 @@
-# On the Rename: Substrate to Navigation
+# On the Rename: Substrate, Navigation, Construction
 
-**Summary**: Why this wiki changed its central metaphor from "memory as substrate" to "memory as navigation." The rename resolves a lexical tension with Levin's framework, the source the wiki leans on most, and adopts a verb that all four converging sources already use.
+**Summary**: The rename history of this wiki and the reasoning behind each move. The name tracked the thesis sharpening across three steps: from "substrate" (the noun Levin denies) to "navigation" (an access mechanism) to "construction" (the function-level process Conway names). The final name sits at the level where biological and AI memory are genuinely the same thing.
 
 **Sources**: Self-Improvising Memory.pdf, self-improvising-memories.pdf, Memory as an Action Space.pdf, Conway_2005.pdf
 
@@ -8,42 +8,50 @@
 
 ---
 
-## The problem with "substrate"
+## The arc in one line
 
-The original name, "Memory as Substrate," meant substrate in the sense of a foundation: memory is the layer an agent's identity is built on, not a record stored inside it. That reading is fine and the thesis still holds.
+Each rename moved the name one level closer to where the thesis actually lives: from a contested noun, to a partial verb, to the function-level process that spans biology and engineering.
 
-But "substrate" has a second, more common reading in this literature: the storage medium, the physical stuff memory lives in. That is exactly the reading Levin spends his paper arguing against. In his own words there is [no-single-substrate](/no-single-substrate); the synaptic machinery is "mostly for interpretation of the memory, not storage," and biology treats "all the parts" as "a kind of reservoir" (source: self-improvising-memories.pdf).
+## Step 1: why "substrate" was wrong
 
-So the wiki was named after the one noun its central source uses mainly to deny. To anyone arriving via Levin rather than via Conway, the title pointed at the wrong idea. The content was faithful to him; the branding partly contradicted him.
+The original name, "Memory as Substrate," meant substrate as a foundation: memory is the layer an agent's identity is built on. But "substrate" more commonly reads as the storage medium, the physical stuff memory lives in. That is exactly the reading Levin spends his paper arguing against. In his own words there is [no-single-substrate](/no-single-substrate); the synaptic machinery is "mostly for interpretation of the memory, not storage," and biology treats "all the parts" as "a kind of reservoir" (source: self-improvising-memories.pdf).
 
-## Two senses of substrate, cutting opposite ways
+So the wiki was named after the one noun its central source uses mainly to deny. To anyone arriving via Levin, the title pointed at the wrong idea. The content was faithful to him; the branding partly contradicted him.
 
-- **Substrate as storage medium**: the thing memory lives in. Levin rejects this. There is no privileged medium; everything is an interpretable reservoir, and what matters is the agent reading and rewriting it.
-- **Substrate as foundation**: what something is built on. The wiki's intended sense. Levin would mostly agree, except he would insist it is a process (interpretation), not a thing, and that no fixed matter performs it.
+## Step 2: why "navigation" was better, but partial
 
-The old name worked only under the second reading and silently suggested the first.
+"Navigation" fixed the substrate problem by picking a verb: memory is something you do, and across the converging sources the shared verb is activity, not stuff. Navigation kept Levin's active traversal, Conway's reconstruction-at-retrieval, Youssef's identity work, and NapMem's engineering term for traversing a memory pyramid.
 
-## Why "navigation"
+But navigation names an access mechanism, not the whole process. It answers "how does the agent get to memory," not "what does memory do to the agent over time." The thesis is about the second question: construction of identity, persistence, becoming different at month twelve than month one. Naming the whole field after the access arc underweighted the identity claim that is the actual point. "Memory as Navigation" also risks sounding like retrieval-with-extra-steps to an outsider.
 
-The rename picks a verb, not a noun, because every converging source lands on activity over stuff:
+There was also a measured tension: the Proactive Memory Agent's headline finding is that selective silence beats always-on injection. A continuous-traversal framing, taken literally, edges toward the always-on behavior the ablation says loses.
 
-- **Levin**: memory is an interpretation process you perform across a reservoir. An "interpretable scratchpad" you move across (source: Self-Improvising Memory.pdf).
-- **Conway**: memory is reconstructed at every retrieval, modulated by current goals. A construction, not a lookup ([retrieval-models](/retrieval-models)).
-- **Youssef**: the shift from retrieval to [ai-memory-as-identity-construction](/ai-memory-as-identity-construction). Memory builds the agent.
-- **NapMem**: long-term memory should be "a structured action space" the agent "navigates," not "passively retrieved context" (source: Memory as an Action Space.pdf).
+## Step 3: why "construction" is the function-level name
 
-"Navigation" is the one word all four would sign. It keeps Levin's active traversal, Conway's reconstruction-at-retrieval, Youssef's identity work, and NapMem's engineering term.
+The decisive question is the level at which the name sits. Biological memory and AI memory are not identical and cannot be: they differ at the substrate level (synapses and bioelectric reservoirs vs weights and JSONL stores). But they share a function: a process that maintains identity across change through reconstruction and goal-gated access. The name has to sit at that shared function level, because it is the only level where the two are genuinely the same thing.
+
+- Name at the substrate level ("substrate") and you have picked the level where they diverge.
+- Name at the access level ("navigation") and you have picked a mechanism that is shared but partial.
+- Name at the function level ("construction") and you have the process that spans both, without claiming they are identical.
+
+"Construction" is Conway's word and the wiki's own thesis verb: "memory is the construction process by which a self maintains identity across change" ([memory-as-construction-thesis](/memory-as-construction-thesis)). It is a process (memory is a doing, not a stuff), substrate-neutral (construct with synapses or with weights), distinctive, and broad enough to cover the whole loop rather than just the access arc.
+
+## What stays a mechanism, not the name
+
+Navigation and intervention are not discarded. They name the access mechanisms inside construction. After this rename the wiki holds both [memory-as-construction-thesis](/memory-as-construction-thesis) (the thesis) and [active-memory-navigation](/active-memory-navigation) (NapMem's traversal mechanism), plus [memory-as-intervention](/memory-as-intervention) (the Proactive agent's selective-injection mechanism). That is the correct shape: one function-level name, multiple access-level mechanisms underneath it.
 
 ## What the rename does not change
 
 It resolves a lexical problem, not an empirical one. The substantive disagreement in [open-questions](/open-questions) stays open: Conway places memory construction in specific vertebrate brain networks, Levin denies any single substrate, and the question of whether engineered substrates can support Levin's layer is unresolved. That is a real disagreement about how memory is implemented, distinct from what we call it.
 
-NapMem sharpens that question rather than closing it: it shows the functional layer (hierarchy, goal-filtering, active reinterpretation) delivers most of the gains on a perfectly ordinary substrate, but it does not dissolve the substrate. See [memory-as-action-space](/memory-as-action-space) and [active-memory-navigation](/active-memory-navigation).
+NapMem and the Proactive Memory Agent sharpen that question rather than closing it: they show the functional layer (hierarchy, goal-filtering, active reinterpretation, selective intervention) delivers most of the gains on a perfectly ordinary substrate, without dissolving it. See [memory-as-action-space](/memory-as-action-space) and [active-memory-navigation](/active-memory-navigation).
 
 ## Related pages
 
-- [memory-as-navigation-thesis](/memory-as-navigation-thesis)
+- [memory-as-construction-thesis](/memory-as-construction-thesis)
 - [no-single-substrate](/no-single-substrate)
 - [memory-as-action-space](/memory-as-action-space)
+- [active-memory-navigation](/active-memory-navigation)
+- [memory-as-intervention](/memory-as-intervention)
 - [open-questions](/open-questions)
 - [log](/log)

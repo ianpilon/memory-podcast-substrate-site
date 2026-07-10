@@ -1,10 +1,10 @@
-# Memory as Navigation
+# Memory as Construction
 
-A Karpathy-style LLM wiki on memory, identity, and the navigation question. The central thesis: **memory is not storage to be retrieved; it is an active process an agent navigates to persist across time.** Four converging arguments support it, from psychology, biology, and AI engineering.
+A Karpathy-style LLM wiki on memory, identity, and the construction question. The central thesis: **memory is not storage to be retrieved; it is the construction process by which an agent persists across time.** Five converging arguments support it, from psychology, biology, and AI engineering.
 
-**Live:** https://memory-as-navigation-site.vercel.app
+**Live:** https://memory-as-construction-site.vercel.app
 
-> See [On the Rename](https://memory-as-navigation-site.vercel.app/on-naming) for why this wiki moved from "substrate" to "navigation." The short version: "substrate" is the one noun Levin uses mainly to deny, while "navigation" is the verb all four sources share.
+> See [On the Rename](https://memory-as-construction-site.vercel.app/on-naming) for the arc from "substrate" to "navigation" to "construction." The short version: biological and AI memory differ at the substrate level but share a function, and the name has to sit at the function level where they are genuinely the same thing.
 
 ## The thesis
 
@@ -22,10 +22,10 @@ Obsidian vault (Wiki/*.md)   ──convert-wiki.py──▶   src/pages/*.mdx   
        the editing source                            the site
 ```
 
-- **Obsidian vault** (`memory-as-navigation/`): the source of truth. Pages use `[[slug]]` wiki-links, plus `[[slug|alias]]` where the link label should differ from the slug.
+- **Obsidian vault** (`memory-as-construction/`): the source of truth. Pages use `[[slug]]` wiki-links, plus `[[slug|alias]]` where the link label should differ from the slug.
 - **`scripts/convert-wiki.py`**: rewrites `[[slug]]` → `[slug](/slug)`, handles aliases, and writes the `.mdx` files. Run it after editing the vault. It skips `index.md`, which is hand-maintained on the site side as `src/pages/index.mdx`.
 
-Process pages ([Log](https://memory-as-navigation-site.vercel.app/log), [Open Questions](https://memory-as-navigation-site.vercel.app/open-questions), [On the Rename](https://memory-as-navigation-site.vercel.app/on-naming)) document ingest history and the unresolved tensions between sources.
+Process pages ([Log](https://memory-as-construction-site.vercel.app/log), [Open Questions](https://memory-as-construction-site.vercel.app/open-questions), [On the Rename](https://memory-as-construction-site.vercel.app/on-naming)) document ingest history and the unresolved tensions between sources.
 
 ## Features
 
@@ -53,7 +53,7 @@ Drop a `.md`, `.txt`, or `.pdf` and the server extracts the text, asks Groq to d
 **Required env vars (in addition to `GROQ_API_KEY`):**
 - `GITHUB_TOKEN` — fine-grained PAT with `Contents: Read and write` + `Pull requests: Read and write` on this repo. Generate at https://github.com/settings/personal-access-tokens/new.
 - `GITHUB_REPO_OWNER` — your GitHub username or org.
-- `GITHUB_REPO_NAME` — the repo name (defaults to `memory-as-navigation-site`).
+- `GITHUB_REPO_NAME` — the repo name (defaults to `memory-as-construction-site`).
 - `GITHUB_BASE_BRANCH` — optional, defaults to `main`.
 - `WIKI_TOPIC` — optional, injected into the LLM prompt for better outputs.
 
@@ -75,8 +75,8 @@ On Vercel, paste all of these into Settings → Environment Variables (Productio
 ## Quick start
 
 ```bash
-git clone https://github.com/ianpilon/memory-as-navigation-site.git
-cd memory-as-navigation-site
+git clone https://github.com/ianpilon/memory-as-construction-site.git
+cd memory-as-construction-site
 npm install
 npm run dev
 ```
@@ -91,7 +91,7 @@ After editing the Obsidian vault, regenerate the site pages:
 python3 scripts/convert-wiki.py
 ```
 
-The script expects the vault at `Documents/Obsidian Vault/memory-as-navigation/Wiki`. Edit `WIKI_DIR` at the top of the script if your path differs. It overwrites all generated `.mdx` files except `index.mdx`, which is hand-maintained.
+The script expects the vault at `Documents/Obsidian Vault/memory-as-construction/Wiki`. Edit `WIKI_DIR` at the top of the script if your path differs. It overwrites all generated `.mdx` files except `index.mdx`, which is hand-maintained.
 
 ## Project structure
 

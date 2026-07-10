@@ -8,10 +8,16 @@ module.exports = withNextra({
   reactStrictMode: true,
   async redirects() {
     return [
-      // The central thesis was renamed; keep old links and bookmarks working.
+      // The central thesis was renamed twice (substrate -> navigation -> construction);
+      // keep old links and bookmarks working by pointing both at the current page.
       {
         source: '/memory-as-substrate-thesis',
-        destination: '/memory-as-navigation-thesis',
+        destination: '/memory-as-construction-thesis',
+        permanent: true,
+      },
+      {
+        source: '/memory-as-navigation-thesis',
+        destination: '/memory-as-construction-thesis',
         permanent: true,
       },
     ]

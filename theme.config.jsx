@@ -1,18 +1,18 @@
 export default {
-  logo: <span style={{ fontWeight: 'bold' }}>Memory as Navigation</span>,
+  logo: <span style={{ fontWeight: 'bold' }}>Memory as Construction</span>,
   project: {
-    link: 'https://github.com/ianpilon/memory-as-navigation-site'
+    link: 'https://github.com/ianpilon/memory-as-construction-site'
   },
-  docsRepositoryBase: 'https://github.com/ianpilon/memory-as-navigation-site/tree/main',
+  docsRepositoryBase: 'https://github.com/ianpilon/memory-as-construction-site/tree/main',
   useNextSeoProps() {
     return {
-      titleTemplate: '%s – Memory as Navigation'
+      titleTemplate: '%s – Memory as Construction'
     }
   },
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-      <meta name="description" content="A Karpathy-style LLM wiki on memory, identity, and the navigation question." />
+      <meta name="description" content="A Karpathy-style LLM wiki on memory, identity, and the construction question." />
     </>
   ),
   navigation: {
@@ -20,7 +20,7 @@ export default {
     next: true
   },
   footer: {
-    text: 'Memory as Navigation wiki ' + new Date().getFullYear()
+    text: 'Memory as Construction wiki ' + new Date().getFullYear()
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
