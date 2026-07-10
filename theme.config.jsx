@@ -1,9 +1,9 @@
 export default {
   logo: <span style={{ fontWeight: 'bold' }}>Memory as Navigation</span>,
   project: {
-    link: 'https://github.com/ianpilon/memory-podcast-substrate-site'
+    link: 'https://github.com/ianpilon/memory-as-navigation-site'
   },
-  docsRepositoryBase: 'https://github.com/ianpilon/memory-podcast-substrate-site/tree/main',
+  docsRepositoryBase: 'https://github.com/ianpilon/memory-as-navigation-site/tree/main',
   useNextSeoProps() {
     return {
       titleTemplate: '%s – Memory as Navigation'

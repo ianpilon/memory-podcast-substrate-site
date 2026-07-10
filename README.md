@@ -60,8 +60,8 @@ On Vercel, paste all of these into Settings → Environment Variables (Productio
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ianpilon/Create-Modern-Documentation-Sites.git
-   cd Create-Modern-Documentation-Sites
+   git clone https://github.com/ianpilon/memory-as-navigation-site.git
+   cd memory-as-navigation-site
    ```
 
 2. Install dependencies:
