@@ -1,137 +1,133 @@
-# Create Modern Documentation Sites
+# Memory as Navigation
 
-A comprehensive guide and template for creating beautiful, modern documentation sites using Next.js and Nextra. This project serves both as a guide and a working example of how to build documentation sites with modern web technologies.
+A Karpathy-style LLM wiki on memory, identity, and the navigation question. The central thesis: **memory is not storage to be retrieved; it is an active process an agent navigates to persist across time.** Four converging arguments support it, from psychology, biology, and AI engineering.
 
-## 🚀 Features
+**Live:** https://memory-as-navigation-site.vercel.app
 
-- 🤖 **Built-in AI chat panel** (Groq-powered, with BM25 keyword retrieval over your wiki content)
-- 🌓 Dark/Light mode support
-- 🔍 Full-text search
-- 📱 Mobile responsive design
-- ✨ Code syntax highlighting
-- 📋 Copy code button
-- 📚 Table of contents
-- ⚡️ Fast page loads
-- 🔄 Hot reload in development
-- 🎨 Customizable theme
-- 📝 MDX support (Markdown + React components)
+> See [On the Rename](https://memory-as-navigation-site.vercel.app/on-naming) for why this wiki moved from "substrate" to "navigation." The short version: "substrate" is the one noun Levin uses mainly to deny, while "navigation" is the verb all four sources share.
 
-## 💬 AI Chat
+## The thesis
 
-A pill-shaped floating button labeled "Ai" sits on the bottom-right of every page. Click it (or press `Cmd+/`) to ask questions about your wiki content in plain language. Answers cite the wiki pages they draw from with inline clickable links. Theme-aware (dark + light) and chat history persists across in-app navigation until you hit Reset.
+- **Psychology** (Martin Conway): the Self-Memory System. Memory and self are bidirectionally coupled; memory is reconstructed at every retrieval.
+- **Biology** (Michael Levin): memory as agential cognitive glue. Active reinterpretation, no single substrate, scale-free across cells and lineages.
+- **AI engineering, principles** (Robert Youssef): the paradigm shift from retrieval to identity construction. Five principles current AI memory lacks.
+- **AI engineering, measured** (NapMem / Xu et al.): memory as a structured action space the agent navigates, not passively retrieved context. The first measured source in the wiki.
 
-**How it works:** per question, the API ranks all `.mdx` pages by BM25 against the user's query, sends the top 4 most relevant pages (plus the page they're viewing) to Groq's Llama 3.3 70B, and asks for an answer with markdown citations.
+## Architecture: two sources of truth
+
+This repo is the **published artifact**, not the editing surface. Content lives in an Obsidian vault and is compiled into the site.
+
+```
+Obsidian vault (Wiki/*.md)   ──convert-wiki.py──▶   src/pages/*.mdx   ──▶   Next.js build
+       the editing source                            the site
+```
+
+- **Obsidian vault** (`memory-as-navigation/`): the source of truth. Pages use `[[slug]]` wiki-links, plus `[[slug|alias]]` where the link label should differ from the slug.
+- **`scripts/convert-wiki.py`**: rewrites `[[slug]]` → `[slug](/slug)`, handles aliases, and writes the `.mdx` files. Run it after editing the vault. It skips `index.md`, which is hand-maintained on the site side as `src/pages/index.mdx`.
+
+Process pages ([Log](https://memory-as-navigation-site.vercel.app/log), [Open Questions](https://memory-as-navigation-site.vercel.app/open-questions), [On the Rename](https://memory-as-navigation-site.vercel.app/on-naming)) document ingest history and the unresolved tensions between sources.
+
+## Features
+
+- **Built-in AI chat** (Groq-powered, with BM25 retrieval over the wiki). A pill-shaped "Ai" button sits bottom-right on every page; `Cmd+/` toggles it.
+- **Drag-drop source ingest.** A "+ Add source" button drafts wiki pages from a dropped `.md`/`.txt`/`.pdf` and opens a pull request with the new files.
+- Dark/Light mode, full-text search, mobile responsive, code highlighting, table of contents, MDX support.
+
+## AI Chat
+
+Per question, the API ranks all `.mdx` pages by BM25 against the query, sends the top 4 most relevant pages (plus the page being viewed) to Groq's Llama 3.3 70B, and asks for a short answer with markdown citations. Citations render as inline clickable links. Chat history persists across in-app navigation until Reset.
 
 **Setup:**
-1. Copy `.env.local.example` to `.env.local`
-2. Get a free [Groq API key](https://console.groq.com/keys) and paste it as `GROQ_API_KEY=...`
+1. Copy `.env.local.example` to `.env.local`.
+2. Get a free [Groq API key](https://console.groq.com/keys) and paste it as `GROQ_API_KEY=...`.
 3. `npm run dev`
 
-On Vercel, set `GROQ_API_KEY` as an environment variable instead.
+On Vercel, set `GROQ_API_KEY` as an environment variable instead. To change the suggested prompts, edit `src/components/WikiChat.jsx`.
 
-**Customizing:** the chat button matches your Nextra primary color automatically (via `--nextra-primary-hue`). Edit `src/components/WikiChat.jsx` to change the suggested prompts.
+## Drag-drop source ingest
 
-## 📥 Drag-drop source ingest
+Drop a `.md`, `.txt`, or `.pdf` and the server extracts the text, asks Groq to draft a summary page plus 3 to 8 concept pages following the Karpathy-style wiki format, then opens a pull request on this repo. Review the diff and merge; Vercel auto-redeploys with the new pages.
 
-A second floating button "+ Add source" lets you drop a `.md`, `.txt`, or `.pdf` directly into the running site. The server extracts the text, asks Groq to draft a summary page plus 3 to 8 concept pages following a Karpathy-style wiki format, then opens a pull request on your GitHub repo with the new files. Review the diff and merge; Vercel auto-redeploys with the new pages.
+`POST /api/ingest` parses the upload with `formidable`, extracts text (`.md`/`.txt` directly, `.pdf` via [`unpdf`](https://github.com/unjs/unpdf)), calls Groq with the file content plus the current index for context, then uses Octokit to create a branch and open a PR.
 
-**How it works:** `POST /api/ingest` parses the upload with `formidable`, extracts text (`.md`/`.txt` directly, `.pdf` via [`unpdf`](https://github.com/unjs/unpdf)), calls Groq with the file content plus the current index for context, then uses Octokit to create a branch and open a PR.
-
-**Required env vars (in addition to GROQ_API_KEY):**
+**Required env vars (in addition to `GROQ_API_KEY`):**
 - `GITHUB_TOKEN` — fine-grained PAT with `Contents: Read and write` + `Pull requests: Read and write` on this repo. Generate at https://github.com/settings/personal-access-tokens/new.
-- `GITHUB_REPO_OWNER` — your GitHub username or org (e.g. `ianpilon`).
-- `GITHUB_REPO_NAME` — the repo name (e.g. `my-wiki`).
+- `GITHUB_REPO_OWNER` — your GitHub username or org.
+- `GITHUB_REPO_NAME` — the repo name (defaults to `memory-as-navigation-site`).
 - `GITHUB_BASE_BRANCH` — optional, defaults to `main`.
-- `WIKI_TOPIC` — optional, injected into the LLM prompt for better outputs (e.g. `information foraging theory`).
+- `WIKI_TOPIC` — optional, injected into the LLM prompt for better outputs.
 
 On Vercel, paste all of these into Settings → Environment Variables (Production + Preview + Development). Paste the `GITHUB_TOKEN` value directly into Vercel, never into a chat or other tool.
 
-**Limits:** 10 MB file size, 60 second serverless function timeout (Vercel Hobby). Scanned PDFs without selectable text will fail with a clear error message. Large PDFs may need to be split.
+**Limits:** 10 MB file size, 60 second serverless function timeout (Vercel Hobby). Scanned PDFs without selectable text fail with a clear error message. Large PDFs may need to be split.
 
-## 🛠️ Tech Stack
+> **Security note:** `/api/ingest` is unauthenticated and spends Groq tokens while opening PRs via the configured PAT. If the deployed URL is public, anyone can use it. Add auth or rate limiting before enabling it on a public deployment.
 
-- [Next.js](https://nextjs.org/) - React framework
-- [Nextra](https://nextra.site/) - Documentation site generator
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
-- [MDX](https://mdxjs.com/) - Markdown + JSX
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
+## Tech stack
 
-## 📦 Quick Start
+- [Next.js](https://nextjs.org/) + [Nextra](https://nextra.site/) (docs theme)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [MDX](https://mdxjs.io/)
+- [Groq](https://groq.com/) (Llama 3.3 70B) for chat and ingest
+- [Octokit](https://github.com/octokit/rest.js) for PR creation
+- Python 3 for the vault → site converter
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ianpilon/memory-as-navigation-site.git
-   cd memory-as-navigation-site
-   ```
+## Quick start
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+git clone https://github.com/ianpilon/memory-as-navigation-site.git
+cd memory-as-navigation-site
+npm install
+npm run dev
+```
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+Open http://localhost:3000.
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+## Regenerating pages from the vault
 
-## 📚 Documentation Structure
+After editing the Obsidian vault, regenerate the site pages:
+
+```bash
+python3 scripts/convert-wiki.py
+```
+
+The script expects the vault at `Documents/Obsidian Vault/memory-as-navigation/Wiki`. Edit `WIKI_DIR` at the top of the script if your path differs. It overwrites all generated `.mdx` files except `index.mdx`, which is hand-maintained.
+
+## Project structure
 
 ```
 src/
-├── pages/          # Documentation pages (MDX)
-├── components/     # React components
-└── styles/        # Global styles
+├── pages/          # MDX wiki pages (generated) + index.mdx (hand-maintained)
+│   ├── api/        # /api/chat (BM25 + Groq), /api/ingest (upload → PR)
+│   └── _meta.json  # sidebar structure (hand-maintained)
+├── components/     # WikiChat.jsx, UploadDrop.jsx, useThemeTokens.js
+└── styles/         # globals.css
+scripts/
+└── convert-wiki.py # Obsidian vault → Nextra .mdx
+theme.config.jsx    # branding, nav, TOC
+next.config.js      # Nextra config, file tracing for /api/chat, redirects
 ```
 
-## 🎨 Customization
+## Deployment
 
-1. Theme configuration in `theme.config.jsx`
-2. Styling with Tailwind CSS in `tailwind.config.js`
-3. Global styles in `src/styles/globals.css`
+This site deploys on Vercel from `main`. Push to `main` and Vercel auto-deploys.
 
-## 🚀 Deployment
+For a fresh deploy:
 
-### Vercel (Recommended)
+1. Push the code to GitHub.
+2. Import the repository into [Vercel](https://vercel.com).
+3. Set the environment variables (see above). Deploy with zero additional configuration.
 
-1. Push your code to GitHub
-2. Import your repository to [Vercel](https://vercel.com)
-3. Deploy with zero configuration
-
-### Manual Build
+Manual build:
 
 ```bash
 npm run build
 npm run start
 ```
 
-## 📖 Using This Guide
+## License
 
-This repository serves two purposes:
-
-1. **As a guide**: Follow the documentation to learn how to create your own documentation site
-2. **As a template**: Fork this repository to start your own documentation project
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) team for the amazing framework
-- [Nextra](https://nextra.site/) team for the documentation template
-- [Tailwind CSS](https://tailwindcss.com/) team for the utility-first CSS framework
+MIT — see the [LICENSE](LICENSE) file.
 
 ---
-Made with ❤️ by [Ian Pilon](https://github.com/ianpilon)
+Made by [Ian Pilon](https://github.com/ianpilon)
