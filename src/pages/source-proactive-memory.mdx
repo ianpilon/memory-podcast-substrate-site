@@ -1,0 +1,48 @@
+# Proactive Memory Agent (Meta 2026)
+
+**Summary**: A 2026 Meta AI paper that reframes memory from a retrieval problem to an intervention problem. A separate memory agent runs alongside an unmodified action agent, maintaining a structured bank and deciding whether to inject a reminder or stay silent. Names the failure mode behavioral state decay and shows that selective intervention beats passive bank exposure, always-on injection, and general retrieval.
+
+**Sources**: Proactive Memory Agent.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## What the paper argues
+
+Long-horizon agents fail not because they lack information but because decision-relevant state stops influencing the next action. A requirement stated early gets violated later. A command that failed gets retried. A diagnosis already reached gets treated as new. The authors call this [behavioral-state-decay](/behavioral-state-decay), and they argue it is a *timing* problem, not a storage problem (source: Proactive Memory Agent.pdf).
+
+Their response is to treat memory as [memory-as-intervention](/memory-as-intervention) rather than retrieval. A separate [proactive-memory-agent](/proactive-memory-agent) runs alongside the action agent. At a fixed interval it updates a structured bank (status, knowledge, procedural entries), then decides whether to inject a concise reminder into the next action-agent call or remain silent. The action agent is unmodified. See [selective-intervention](/selective-intervention) for the feature that carries the gains.
+
+Authors: Yifan Wu, Lizhu Zhang, Yuhang Zhou, Mingyi Wang, Bo Peng, Serena Li, Xiangjun Fan, Zhuokai Zhao (Meta AI). arXiv:2607.08716v1, July 2026. Code released at github.com/yifannnwu/proactive-memory-agent.
+
+## Core moves
+
+- [behavioral-state-decay](/behavioral-state-decay): the failure mode. Information that should shape future actions stops doing so, even when still in the context window.
+- [memory-as-intervention](/memory-as-intervention): the reframe. Memory decides whether and when remembered state should re-enter the control loop, not just what to store.
+- [proactive-memory-agent](/proactive-memory-agent): the architecture. A separate two-phase agent (bank management, then intervention decision) beside an unmodified action agent.
+- [selective-intervention](/selective-intervention): the killer feature. The decision to stay silent is what beats passive exposure and always-on injection.
+
+## Key results
+
+- On Terminal-Bench 2.0, Claude Sonnet 4.5 improves +8.3 pp (37.6% to 45.9%) with the memory agent; even the stronger Opus 4.6 gains +2.4 pp.
+- On the task-weighted tau-2-Bench average, Sonnet 4.5 gains +6.8 pp (55.0% to 61.8%); airline and retail domains gain roughly +10 pp.
+- The ablation is the headline: full selective intervention beats full-bank passive exposure, always-on injection, advisor-only guidance (no bank), and Mem0 retrieval. The win is in the silence decision, not in exposing more memory.
+- As a preliminary step toward open-weight memory policies, the authors fine-tune Qwen3.5-27B with SFT and GRPO and show partial transfer to held-out Terminal-Bench.
+
+## Why this matters for the wiki
+
+This is the fifth converging source and the second measured engineering one. Where [NapMem](/source-napmem) shows that active use beats passive retrieval, this paper sharpens the claim: it isolates the *intervention decision* and shows that a separate, cheap-to-run memory agent whose strength is knowing when *not* to interrupt beats both passive stores and monolithic self-navigating agents. The benchmarks (tau-2-Bench service domains, Terminal-Bench command-line execution) are closer to office and ops work than NapMem's conversational-persona benchmarks.
+
+It also introduces a structural recommendation the other sources lack: decouple the memory decision-maker from the action agent. See [memory-as-navigation-thesis](/memory-as-navigation-thesis) and [open-questions](/open-questions).
+
+## Related pages
+
+- [behavioral-state-decay](/behavioral-state-decay)
+- [memory-as-intervention](/memory-as-intervention)
+- [proactive-memory-agent](/proactive-memory-agent)
+- [selective-intervention](/selective-intervention)
+- [memory-as-action-space](/memory-as-action-space)
+- [active-memory-navigation](/active-memory-navigation)
+- [working-self](/working-self)
+- [open-questions](/open-questions)

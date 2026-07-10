@@ -1,0 +1,50 @@
+# Memory as Intervention
+
+**Summary**: The Proactive Memory Agent paper's core reframe. Memory is not a write-and-retrieval problem, and it is not even just a navigation problem. It is an intervention problem: whether, when, and how remembered state should enter the action agent's control loop. This sharpens NapMem's action-space view by separating the "whether" question from the "which" question.
+
+**Sources**: Proactive Memory Agent.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The reframe
+
+Most memory systems, including NapMem's [memory-as-action-space](/memory-as-action-space), frame the problem as: given a query, which memory should be retrieved and consulted. The agent decides *what* to pull. The Proactive Memory Agent paper argues this still conflates two distinct decisions (source: Proactive Memory Agent.pdf):
+
+1. *What* memory is relevant (the retrieval or navigation question).
+2. *Whether* any memory should enter the action agent's next decision at all (the intervention question).
+
+The paper makes the second question primary. Memory should be a policy over interventions, not over retrievals. The memory agent decides whether to inject a reminder or stay silent, and the silence is an explicit, load-bearing action.
+
+## Why this is a stronger claim than navigation
+
+Navigation, as in [NapMem's navigation](/active-memory-navigation), assumes the agent should consult memory when it has a query that needs grounding. Intervention asks a harder question: even if memory is available, should it interrupt the current action right now?
+
+The difference shows up in the paper's ablation. Exposing the full memory bank to the action agent every step (passive context augmentation) does worse than selective intervention. Always injecting a synthesized reminder (no silence action) also does worse. The win comes from the *decision not to intervene*, which is a control judgment navigation alone does not make. See [selective-intervention](/selective-intervention).
+
+## A stronger control question than summarization
+
+The paper is explicit about this distinction. A summarizer asks what to retain. A navigator asks what to retrieve. An intervention policy asks whether any retained state should become active in the next decision. Long-horizon tasks vary in their failure modes: sometimes the useful memory is a hard requirement from the first instruction, sometimes an environment fact, sometimes a failed attempt, sometimes an open subgoal. No fixed summarization or retrieval policy can know whether memory should interrupt the next action. That requires [calibrated intervention](/behavioral-state-decay).
+
+## Connection to the wiki's sources
+
+- To Conway: intervention is what the [working-self](/working-self) does. The working self biases what enters consciousness based on current goals. The proactive memory agent is an engineered analogue: a goal-conditioned gate that decides whether remembered state should shape the next action. See [self-memory-system](/self-memory-system).
+- To Levin: intervention is the active side of [mnemonic-improvisation](/mnemonic-improvisation). Memory is not consulted, it is offered at the moment it matters, then reinterpreted by the action agent.
+- To retrieval theory: it is a fourth retrieval route beyond Conway's generative and direct [retrieval-models](/retrieval-models): proactive injection, where memory initiates contact rather than waiting to be queried.
+- To NapMem: it sharpens [memory-as-action-space](/memory-as-action-space). The action-space view unified storage and access. The intervention view splits access into two agents and adds the silence decision.
+
+## What it does not settle
+
+Intervention is still substrate-agnostic in spirit. The paper runs on ordinary models (Claude, Qwen) and ordinary storage. It does not touch Levin's [no-single-substrate](/no-single-substrate) claim. It also does not address affective weighting (whether emotional salience should bias intervention) beyond the crude signal in its procedural memory entries. See [open-questions](/open-questions).
+
+## Related pages
+
+- [source-proactive-memory](/source-proactive-memory)
+- [behavioral-state-decay](/behavioral-state-decay)
+- [proactive-memory-agent](/proactive-memory-agent)
+- [selective-intervention](/selective-intervention)
+- [memory-as-action-space](/memory-as-action-space)
+- [active-memory-navigation](/active-memory-navigation)
+- [working-self](/working-self)
+- [retrieval-models](/retrieval-models)

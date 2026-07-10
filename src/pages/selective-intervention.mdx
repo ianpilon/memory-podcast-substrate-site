@@ -1,0 +1,53 @@
+# Selective Intervention
+
+**Summary**: The feature that carries the Proactive Memory Agent's gains. The memory agent's most important decision is often to do nothing: to stay silent and let the action agent proceed without memory context. The paper's ablation shows selective intervention beats passive full-bank exposure, always-on injection, advisor-only guidance, and general retrieval. The win is in the silence.
+
+**Sources**: Proactive Memory Agent.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The silence is an action
+
+In the proactive memory architecture, the memory agent's Phase 2 output is either a targeted reminder or a null intervention (source: Proactive Memory Agent.pdf). The null intervention is explicit and load-bearing. The agent is encouraged to intervene only when a remembered item is likely to affect the next decision: a requirement about to be violated, an environment fact that explains the current observation, a previous attempt that should not be repeated, a diagnosis that remains relevant, an open subgoal being neglected.
+
+It is discouraged from giving broad strategic advice, restating information already visible in the current observation, or taking over the action agent's planning. Intervention timing is part of the memory policy, not an automatic consequence of every memory update.
+
+## The ablation that proves it
+
+The paper isolates the silence decision by removing it in two ways (source: Proactive Memory Agent.pdf):
+
+- **Full-bank context.** Keep Phase 1 bank management but remove Phase 2 selection. The entire bank is exposed to the action agent every step. This resembles passive context augmentation. It does worse than selective intervention.
+- **Always inject.** Keep both the bank and the Phase 2 synthesized reminder, but remove the silence action. The agent must inject at every step. This does worse too.
+
+The conclusion: the benefit is not from making more memory visible, and not even from synthesizing reminders every step. The benefit is from the *decision not to intervene*. Exposing more memory can actively hurt by adding latency, consuming tokens, and distracting the agent from local progress.
+
+## Why this generalizes
+
+The result matches an intuition present across the wiki's other sources:
+
+- Conway's [working-self](/working-self) gates what enters consciousness. It does not surface everything; it surfaces what the current goal requires. Selective intervention is the same gating, applied to a running agent.
+- Levin's [coherence-vs-correspondence](/coherence-vs-correspondence) and [gestalt-over-fidelity](/gestalt-over-fidelity): salience and meaning matter more than completeness. Dumping the full bank is the fidelity extreme.
+- [Coherence](/coherence-vs-correspondence): the memory agent satisfices. Once the action agent is on a coherent track, memory stays quiet. This is coherence-gating in real time.
+
+## Connection to NapMem
+
+NapMem's [navigation](/active-memory-navigation) has the action agent decide what to consult per query. That is a form of selectivity, but it lives inside the action agent and it still assumes the agent should consult memory whenever it has a grounding need. Selective intervention adds a layer above: an independent judge that can decline to interrupt even when memory is available and relevant, because interrupting would cost more than it helps right now.
+
+The two compose. A NapMem-style pyramid can sit underneath as the long-term store, and a proactive memory agent can sit on top, deciding when any of it should enter the action agent's next decision. See [memory-as-navigation-thesis](/memory-as-navigation-thesis) and [open-questions](/open-questions).
+
+## What it does not settle
+
+The paper's silence policy is calibrated by a strong prompted model (Claude Opus 4.6) in the main results. The open-weight fine-tune (Qwen3.5-27B with SFT and GRPO) is preliminary. Whether a cheaper memory agent can learn well-calibrated silence on constrained hardware is an open deployment question. See [open-questions](/open-questions).
+
+## Related pages
+
+- [source-proactive-memory](/source-proactive-memory)
+- [memory-as-intervention](/memory-as-intervention)
+- [proactive-memory-agent](/proactive-memory-agent)
+- [behavioral-state-decay](/behavioral-state-decay)
+- [active-memory-navigation](/active-memory-navigation)
+- [memory-as-action-space](/memory-as-action-space)
+- [working-self](/working-self)
+- [coherence-vs-correspondence](/coherence-vs-correspondence)

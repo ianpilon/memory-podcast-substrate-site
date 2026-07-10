@@ -48,6 +48,14 @@
   "active-memory-navigation": "Active Memory Navigation",
   "memory-pyramid": "Memory Pyramid",
   "provenance-linking": "Provenance Linking",
+  "-- proactive --": {
+    "type": "separator",
+    "title": "Proactive Memory / Intervention"
+  },
+  "behavioral-state-decay": "Behavioral State Decay",
+  "memory-as-intervention": "Memory as Intervention",
+  "proactive-memory-agent": "Proactive Memory Agent",
+  "selective-intervention": "Selective Intervention",
   "-- clinical --": {
     "type": "separator",
     "title": "Clinical and Case Studies"
@@ -70,6 +78,7 @@
   "levin-2024-blog-supplement": "Levin 2024 blog",
   "youssef-2026-psychology-and-ai-memory": "Youssef 2026",
   "source-napmem": "NapMem: Action Space",
+  "source-proactive-memory": "Proactive Memory (Meta)",
   "schleisman-promise-of-agi-neuroscience": "Schleisman: Promise of AGI",
   "schleisman-is-your-technology-human-ready": "Schleisman: Human-Ready Tech",
   "-- outlier --": {

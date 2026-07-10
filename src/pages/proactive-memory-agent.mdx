@@ -1,0 +1,56 @@
+# Proactive Memory Agent
+
+**Summary**: The Proactive Memory Agent paper's architectural move. A separate memory agent runs alongside an unmodified action agent, decoupling memory decisions from action selection. Inside the memory agent, two phases run each step: Phase 1 manages a structured memory bank through tool calls, Phase 2 decides whether to inject a reminder or stay silent. The split echoes Conway's Self-Memory System and is more tractable to deploy than a monolithic self-navigating agent.
+
+**Sources**: Proactive Memory Agent.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The two-agent split
+
+The paper's central structural decision is to keep the action agent untouched and add a separate memory agent that runs alongside it (source: Proactive Memory Agent.pdf). The memory agent observes a sliding window of the recent trajectory and the current memory bank. At a fixed interval (the first step, then every N steps) it is invoked to update the bank and optionally inject a context reminder into the next action-agent call.
+
+The action agent's base instructions, tools, and decoding are unchanged. The only change is an optional transient memory context supplied at call time. This is what makes the module plug-and-play with frontier action agents and existing harnesses.
+
+This is a different bet than NapMem's monolith, where the same trained model both navigates memory and answers. See [memory-as-action-space](/memory-as-action-space) and [open-questions](/open-questions).
+
+## The memory bank
+
+The bank is a compact structured representation of execution state, with three components:
+
+- **Status.** A private field tracking the memory agent's own view of progress, open issues, and unresolved risks. It is never shown to the action agent, so the memory agent can maintain a working model of the task without polluting the action context.
+- **Knowledge memories.** Relatively stable facts expected to remain true: task requirements, environment properties, file paths, configuration details, tool-verified facts, evaluation-relevant observations.
+- **Procedural memories.** Attempts and outcomes: commands that failed, fixes that succeeded, hypotheses ruled out, diagnostic signals, empirical improvements.
+
+Each entry carries an identifier, natural-language content, and metadata (creation time, access stats). Identifiers let the memory agent update or delete stale entries explicitly. The structure is flatter than NapMem's [memory-pyramid](/memory-pyramid) but the knowledge/procedural split is meaningful and links to [provenance](/provenance-linking) through the access stats.
+
+## The two phases
+
+At each memory step the agent runs two phases:
+
+- **Phase 1, memory management.** The agent returns a list of predefined tool calls (memory_update_status, memory_save_knowledge, memory_save_procedural, memory_delete) executed in order. Output is a sequence of bank edits, not a free-form summary. This makes memory management explicit and constrained.
+- **Phase 2, intervention selection.** Conditioned on the updated bank and recent trajectory, the agent emits either a targeted reminder or a null intervention. This phase does not modify the bank. It decides only whether remembered state should be reactivated. See [selective-intervention](/selective-intervention).
+
+## Connection to the wiki's sources
+
+- To Conway: the split is a restatement of the [self-memory-system](/self-memory-system) at the agent level. The memory agent is the [working-self](/working-self) (active, goal-conditioned, gating access). The memory bank is the [autobiographical-knowledge-base](/autobiographical-knowledge-base) (structured store). The status field is a proto [self-model](/co-emergent-self-model), private and evolving.
+- To Levin: the separate memory agent is the most explicit engineered instance of [memories-as-agents](/memories-as-agents). Memory has its own goals (track state, decide when to intervene) distinct from the action agent's goals. It is agential memory, not a passive store.
+- To NapMem: the bank overlaps with the [memory-pyramid](/memory-pyramid) but is flatter and task-execution-oriented rather than user-persona-oriented. The two could compose: a pyramid as the long-term store, a proactive bank as the working execution state on top of it.
+
+## Why the split matters for deployment
+
+Because the memory agent is separate and runs on a fixed interval (not every step), it can be a smaller, cheaper model than the action agent. That decoupling lets you trade memory-agent quality for cost without touching the action agent, which is directly relevant when model size and memory budget are constrained. The action agent can be any frontier model the client already uses, since it is unmodified.
+
+## Related pages
+
+- [source-proactive-memory](/source-proactive-memory)
+- [memory-as-intervention](/memory-as-intervention)
+- [selective-intervention](/selective-intervention)
+- [behavioral-state-decay](/behavioral-state-decay)
+- [memory-pyramid](/memory-pyramid)
+- [memories-as-agents](/memories-as-agents)
+- [working-self](/working-self)
+- [self-memory-system](/self-memory-system)
+- [co-emergent-self-model](/co-emergent-self-model)

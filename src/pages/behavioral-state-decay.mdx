@@ -1,0 +1,47 @@
+# Behavioral State Decay
+
+**Summary**: The failure mode the Proactive Memory Agent paper names. During long-horizon execution, information that should shape future actions (task requirements, environment facts, previous attempts, failure diagnoses, open subgoals) stops influencing the agent's next decision, even when it is still present in the context window. Memory as storage does not solve this. Memory as timing does.
+
+**Sources**: Proactive Memory Agent.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The failure mode
+
+The paper identifies a pattern across long-horizon agent tasks (source: Proactive Memory Agent.pdf):
+
+- An agent identifies a requirement early, then later violates it while fixing an unrelated bug.
+- An agent observes that a command, parameter, or implementation path fails, then later retries a near-identical variant.
+- An agent diagnoses an error pattern, then later treats the same pattern as new.
+
+In each case the information is still in the transcript, and may even still be inside the model's context window. It has simply stopped exerting reliable control over behavior. This is not a recall failure. It is a salience-at-the-right-moment failure.
+
+## Why longer context does not fix it
+
+A natural response to state decay is to make more history available. The paper argues this is insufficient because the problem is not whether information *can be* retrieved but whether it *does* influence the next action when it should. Models underutilize information depending on its position in the context, so presence does not guarantee influence.
+
+This is the gap that [memory-as-intervention](/memory-as-intervention) fills. The question stops being "what should we store" and becomes "whether, when, and how remembered state should enter the action agent's next decision."
+
+## Connection to the wiki's sources
+
+- To Conway: behavioral state decay is the inverse of what the [working-self](/working-self) is supposed to prevent. The working self gates what enters consciousness based on current goals. State decay is what happens when that gating fails or is absent. See [self-memory-system](/self-memory-system).
+- To Levin: it is a failure of [mnemonic-improvisation](/mnemonic-improvisation). The agent is not reinterpreting its past experience against its present moment. The engram is present but inert.
+- To coherence and correspondence: state decay is a [coherence-vs-correspondence](/coherence-vs-correspondence) failure in the direction of lost coherence. The agent's behavior drifts from its own earlier-established constraints.
+- To NapMem: [NapMem's navigation](/active-memory-navigation) addresses part of this by letting the agent pull relevant memory on demand, but it does not solve the *when* question. The agent must already suspect it needs something. State decay is precisely the case where the agent does not suspect.
+
+## Why this is distinct from forgetting
+
+Forgetting is a storage problem: the information is gone. State decay is a control problem: the information is present but behaviorally inactive. This is why more memory, bigger context, or better retrieval alone do not fix it. The fix requires something that decides whether remembered state should become active in the next decision, which is exactly what the [proactive-memory-agent](/proactive-memory-agent) does through [selective-intervention](/selective-intervention).
+
+## Related pages
+
+- [source-proactive-memory](/source-proactive-memory)
+- [memory-as-intervention](/memory-as-intervention)
+- [proactive-memory-agent](/proactive-memory-agent)
+- [selective-intervention](/selective-intervention)
+- [working-self](/working-self)
+- [mnemonic-improvisation](/mnemonic-improvisation)
+- [coherence-vs-correspondence](/coherence-vs-correspondence)
+- [active-memory-navigation](/active-memory-navigation)

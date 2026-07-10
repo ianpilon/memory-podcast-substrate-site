@@ -1,8 +1,8 @@
 # Memory as Navigation Thesis
 
-**Summary**: The central synthesis of the wiki. Four converging arguments (Conway in psychology, Levin in biology, Youssef and NapMem in AI engineering) that **memory is not storage to be retrieved; it is an active process an agent navigates to persist across time**. The frameworks disagree on substrate-specificity but agree on the functional claim and on the verb: memory is something you do.
+**Summary**: The central synthesis of the wiki. Five converging arguments (Conway in psychology, Levin in biology, Youssef, NapMem, and the Proactive Memory Agent in AI engineering) that **memory is not storage to be retrieved; it is an active process an agent navigates and is intervened on to persist across time**. The frameworks disagree on substrate-specificity but agree on the functional claim and on the verb: memory is something you do.
 
-**Sources**: Conway_2005.pdf, Self-Improvising Memory.pdf, Robert Youssef x post.pdf, Memory as an Action Space.pdf
+**Sources**: Conway_2005.pdf, Self-Improvising Memory.pdf, Robert Youssef x post.pdf, Memory as an Action Space.pdf, Proactive Memory Agent.pdf
 
 **Last updated**: 2026-07-10
 
@@ -26,15 +26,17 @@ The [self-memory-system](/self-memory-system) is a bidirectional coupling of [wo
 
 Current AI agent memory (vector databases, conversation summaries, key-value stores, episodic buffers) fails because it implements storage, not identity. The fix is to apply psychology's principles (hierarchy, goal-filtering, emotional weighting, narrative, co-emergent self-model) and build an identity-construction system. See [youssef-2026-psychology-and-ai-memory](/youssef-2026-psychology-and-ai-memory) and [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks).
 
-### AI engineering: measurement (NapMem)
+### AI engineering: measurement and intervention (NapMem and the Proactive Memory Agent)
 
 NapMem tests the active-use claim directly. It reframes long-term user memory as [memory-as-action-space](/memory-as-action-space) that the agent [navigates](/active-memory-navigation) with tools, rather than passively retrieved context. Its [memory-pyramid](/memory-pyramid) is an engineering re-derivation of Conway's autobiographical hierarchy. Switching navigation off and reverting to passive retrieval drops accuracy sharply, the strongest measured evidence yet that "memory as storage" underperforms "memory as active use." Crucially, NapMem achieves this on a perfectly ordinary substrate and does not dissolve it (source: Memory as an Action Space.pdf). See [source-napmem](/source-napmem).
+
+The Proactive Memory Agent sharpens the claim one step further. It separates memory from the action agent entirely: a [dedicated memory agent](/proactive-memory-agent) maintains a structured bank and decides whether to inject a reminder or stay silent. Its core reframe is [memory-as-intervention](/memory-as-intervention), and it names the failure mode both prior sources miss: [behavioral-state-decay](/behavioral-state-decay), where decision-relevant state stops influencing the next action even when still in context. Its ablation shows the win lives in [selective-intervention](/selective-intervention), the decision not to interrupt, which beats passive full-bank exposure and always-on injection (source: Proactive Memory Agent.pdf). See [source-proactive-memory](/source-proactive-memory).
 
 ## What the four agree on
 
 1. **Memory is functional, not archival.** Its purpose is agent-persistence, not record-keeping.
 2. **Reconstruction is the default.** Every retrieval is an active construction, not a lookup.
-3. **Memory is something you do.** Interpret (Levin), construct (Conway), build identity (Youssef), navigate (NapMem). The verb matters more than the medium.
+3. **Memory is something you do.** Interpret (Levin), construct (Conway), build identity (Youssef), navigate (NapMem), intervene (Proactive Memory Agent). The verb matters more than the medium.
 4. **The self and memory are bidirectional.** The agent shapes what is remembered; the memory shapes what the agent can become.
 5. **Fidelity is not the optimization target.** Salience, coherence, and identity-relevance are.
 
@@ -63,6 +65,7 @@ The first four are roughly the [five-principles-ai-memory-lacks](/five-principle
 - [levin-2024-self-improvising-memory](/levin-2024-self-improvising-memory)
 - [youssef-2026-psychology-and-ai-memory](/youssef-2026-psychology-and-ai-memory)
 - [source-napmem](/source-napmem)
+- [source-proactive-memory](/source-proactive-memory)
 - [schleisman-promise-of-agi-neuroscience](/schleisman-promise-of-agi-neuroscience)
 - [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
 - [five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)

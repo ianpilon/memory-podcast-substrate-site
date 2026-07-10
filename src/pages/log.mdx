@@ -85,3 +85,23 @@ Pages created (5):
 1. NapMem partially answers open-question #3 (principles vs substrate): the functional layer delivers most of the gain on an ordinary substrate. It does not dissolve the substrate, so Levin's no-single-substrate claim remains open.
 2. NapMem's pyramid independently re-derives Conway's autobiographical knowledge base hierarchy. Strong cross-source convergence, noted on [memory-pyramid](/memory-pyramid).
 3. NapMem's navigation ablation (passive retrieval vs active navigation, same sources) is the first measured evidence in the wiki for the central thesis, noted on [memory-as-action-space](/memory-as-action-space).
+
+### Ingest: Proactive Memory Agent (Meta 2026)
+
+Source ingested (copied to `Raw/`):
+
+- `Proactive Memory Agent.pdf` (Wu et al., Meta AI, arXiv:2607.08716v1, 10 Jul 2026): reframes memory from retrieval to intervention. A separate memory agent runs beside an unmodified action agent, maintains a structured bank (status/knowledge/procedural), and decides whether to inject a reminder or stay silent. Names behavioral state decay. Selective intervention beats passive full-bank exposure, always-on injection, advisor-only guidance, and Mem0 retrieval. ~13 pages.
+
+Pages created (5):
+
+- [source-proactive-memory](/source-proactive-memory) (summary)
+- [behavioral-state-decay](/behavioral-state-decay) (the failure mode; keystone new concept)
+- [memory-as-intervention](/memory-as-intervention) (core reframe; sharpens memory-as-action-space)
+- [proactive-memory-agent](/proactive-memory-agent) (the two-agent split architecture; two-phase workflow)
+- [selective-intervention](/selective-intervention) (the silence action; the ablation-proven feature)
+
+### Flags surfaced (see open-questions.md)
+
+1. New architectural tension (#4): monolithic navigation (NapMem, one trained model does both jobs) vs separate intervention agent (this paper, unmodified action agent plus cheaper sidecar). Not head-to-head; implies different deployment bets. The split is easier against frontier closed models and lets the memory agent be sized independently.
+2. Behavioral state decay is a distinct failure mode from forgetting: the information is present but behaviorally inactive. Adds a control/timing dimension the prior sources did not name.
+3. The open-weight fine-tune (Qwen3.5-27B with SFT+GRPO) is preliminary. Whether a cheaper memory agent can learn well-calibrated silence on constrained hardware is an open deployment question.
