@@ -1,0 +1,45 @@
+# NapMem: Memory as an Action Space
+
+**Summary**: A 2026 paper from Alibaba's Qwen team that reframes long-term user memory for conversational agents from passively retrieved context into a structured action space the agent learns to navigate. Provides the first measured evidence in this wiki that "memory as active use" beats "memory as storage," and supplies the engineering term ("navigation") that the wiki adopted for its rename.
+
+**Sources**: Memory as an Action Space.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## What the paper argues
+
+Long-term user memory is essential for personalized conversational agents, yet most systems expose it through passive retrieval: a system-level function selects evidence and hands it to the model, which becomes "a consumer of pre-selected evidence" (source: Memory as an Action Space.pdf). NapMem argues memory use should instead be "agent-native": the agent itself decides whether memory is needed, which level of abstraction to consult, and when it has gathered enough evidence.
+
+The vehicle is a multi-granularity [memory-pyramid](/memory-pyramid) per user, exposed through tools, with the navigation policy learned by reinforcement learning. See [memory-as-action-space](/memory-as-action-space) and [active-memory-navigation](/active-memory-navigation).
+
+Authors: Yue Xu, Yutao Sun, Yihao Liu et al. (Alibaba Qwen Large Model Application Team, with ShanghaiTech, Zhejiang University, Peking University, NUS). arXiv:2607.05794, July 2026.
+
+## Core moves
+
+- [memory-as-action-space](/memory-as-action-space): memory is an action interface, not retrieved context.
+- [memory-pyramid](/memory-pyramid): four linked levels, raw conversations up to user profile, connected by [provenance-linking](/provenance-linking).
+- [active-memory-navigation](/active-memory-navigation): a learned policy selects memory tools and granularity per query, traversing the pyramid top-down or bottom-up.
+
+## Key results
+
+- Competitive across three memory-intensive benchmarks (PersonaMem-v2, LongMemEval, LoCoMo) while largely preserving general reasoning and tool use on three non-memory benchmarks (GPQA-Diamond, BFCL-v3, V*Bench).
+- The navigation ablation is the headline: replacing tool-based navigation with passive retrieval, while keeping the same memory sources, drops average accuracy. This is direct, measured evidence for the wiki's central claim.
+- RL makes navigation more selective: fewer tool calls, higher evidence-hit ratio, without collapsing to a single memory level.
+- Larger models tend to start navigation from broad file reads (topic tracks, profile); smaller models start from targeted record-level evidence.
+
+## Why this matters for the wiki
+
+NapMem is the fourth converging source and the first measured one. It independently re-derives Conway's autobiographical hierarchy ([autobiographical-knowledge-base](/autobiographical-knowledge-base)) as an engineering structure, and it engineers Levin's bowtie re-inflation ([bowtie-architecture](/bowtie-architecture)) as query-time navigation. It does not, however, vindicate Levin's [no-single-substrate](/no-single-substrate) claim: it runs on conventional storage (JSONL records, Markdown files, vector and keyword indices). It shows the functional layer delivers most of the gain on an ordinary substrate. See [memory-as-navigation-thesis](/memory-as-navigation-thesis) and [open-questions](/open-questions).
+
+## Related pages
+
+- [memory-as-navigation-thesis](/memory-as-navigation-thesis)
+- [memory-as-action-space](/memory-as-action-space)
+- [active-memory-navigation](/active-memory-navigation)
+- [memory-pyramid](/memory-pyramid)
+- [provenance-linking](/provenance-linking)
+- [autobiographical-knowledge-base](/autobiographical-knowledge-base)
+- [bowtie-architecture](/bowtie-architecture)
+- [open-questions](/open-questions)

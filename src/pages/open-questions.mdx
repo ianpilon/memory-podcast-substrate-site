@@ -28,7 +28,7 @@
 - **Youssef**: five psychology-derived principles ([five-principles-ai-memory-lacks](/five-principles-ai-memory-lacks)) are sufficient to redesign AI agent memory.
 - **Levin** (implicit, via [no-single-substrate](/no-single-substrate) and [bowtie-architecture](/bowtie-architecture)): the substrate must support active reinterpretation, which most current AI substrates do not. Five principles on top of a vector database may be necessary but not sufficient.
 
-**Status**: open. Worth tracking whether implementations of the five principles produce meaningfully better agent memory or whether the substrate floor (LLM + vector DB) caps the achievable identity-coherence.
+**Status**: partially answered (2026-07-10). [NapMem](/source-napmem) is the first measured test. It shows the functional layer (hierarchy plus active reinterpretation at retrieval, via [active-memory-navigation](/active-memory-navigation)) delivers competitive results on a perfectly ordinary substrate (JSONL records, Markdown files, vector and keyword indices). It does not dissolve the substrate, so it does not vindicate Levin's [no-single-substrate](/no-single-substrate) claim, but it does show the substrate floor does not cap the gains from Youssef's principles as hard as feared. Still open: whether any substrate advantage appears at longer horizons or harder identity-coherence tasks, and whether Levin's layer (genuine substrate flexibility) is reachable at all in engineered systems.
 
 ## Load-bearing assumptions
 
@@ -64,7 +64,7 @@ These are referenced in the corpus and worth potential follow-up sources:
 
 ## Related pages
 
-- [memory-as-substrate-thesis](/memory-as-substrate-thesis)
+- [memory-as-navigation-thesis](/memory-as-navigation-thesis)
 - [no-single-substrate](/no-single-substrate)
 - [confabulation-as-feature](/confabulation-as-feature)
 - [coherence-vs-correspondence](/coherence-vs-correspondence)

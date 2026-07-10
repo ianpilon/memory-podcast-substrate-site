@@ -1,0 +1,43 @@
+# Memory as an Action Space
+
+**Summary**: NapMem's core reframe. Long-term memory should be exposed to an agent as a set of actions it can take (search, get, read, stop), not as pre-selected context passively delivered to it. This engineering claim converges with Levin's "memory is interpretation" and Conway's "retrieval is construction," and it is the engine behind this wiki's rename to navigation.
+
+**Sources**: Memory as an Action Space.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The reframe
+
+In most memory systems the retrieval stage is a fixed pipeline or system function. It selects evidence and injects it into the prompt, leaving the agent "with limited control over how memory is utilized" (source: Memory as an Action Space.pdf). The agent is a consumer of memory someone else chose.
+
+NapMem flips this. Memory access becomes a sequence of explicit actions. At each step the agent either invokes a memory tool or stops and answers. Formally, the policy samples the next action conditioned on the query, the memory store, and the evidence gathered so far. Memory use becomes "an explicit and optimizable part of the agent's decision process."
+
+## Why it is not just better retrieval
+
+Adaptive retrieval work (reflective retrieval, query rewriting, reranking) improves the retrieval function but keeps the same shape: the system retrieves, the model consumes. The action-space view changes the shape. The agent can start broad, drill down, jump between granularities, and decide the evidence is sufficient, or that no memory is needed at all. Granularity is chosen at query time, not fixed by the pipeline.
+
+## Connection to the wiki's sources
+
+This is the engineering restatement of claims the wiki already holds from biology and psychology:
+
+- Levin: memory is an interpretation the agent performs, not data it consults. The action space is where the interpretation happens. See [no-single-substrate](/no-single-substrate) and [memories-as-agents](/memories-as-agents).
+- Conway: retrieval is generative reconstruction modulated by goals, not lookup. Goal-conditioned tool selection is a measurable version of the [working-self](/working-self) biasing access. See [retrieval-models](/retrieval-models).
+- Youssef: the shift from retrieval to [ai-memory-as-identity-construction](/ai-memory-as-identity-construction). Memory builds the agent by being used, not by being stored.
+
+The verb is the same. NapMem gives it a measurable, trainable form.
+
+## The measured payoff
+
+The navigation ablation makes the case quantitatively. Keeping the same memory sources but replacing tool-based navigation with passive retrieval measurably hurts accuracy (source: Memory as an Action Space.pdf). Same data, different access discipline, different outcome. That is the strongest evidence in the wiki that "memory as storage" underperforms "memory as active use." See [active-memory-navigation](/active-memory-navigation).
+
+## Related pages
+
+- [active-memory-navigation](/active-memory-navigation)
+- [memory-pyramid](/memory-pyramid)
+- [memory-as-navigation-thesis](/memory-as-navigation-thesis)
+- [retrieval-models](/retrieval-models)
+- [bowtie-architecture](/bowtie-architecture)
+- [ai-memory-as-identity-construction](/ai-memory-as-identity-construction)
+- [source-napmem](/source-napmem)

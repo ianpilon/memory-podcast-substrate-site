@@ -4,7 +4,8 @@
     "type": "separator",
     "title": "Central Thesis"
   },
-  "memory-as-substrate-thesis": "Memory as Substrate Thesis",
+  "memory-as-navigation-thesis": "Memory as Navigation Thesis",
+  "on-naming": "On the Rename",
   "-- conway --": {
     "type": "separator",
     "title": "Conway / Self-Memory System"
@@ -39,6 +40,14 @@
   "narrative-coherence": "Narrative Coherence",
   "co-emergent-self-model": "Co-Emergent Self-Model",
   "constructed-emotion-barrett": "Constructed Emotion (Barrett)",
+  "-- napmem --": {
+    "type": "separator",
+    "title": "NapMem / Memory Navigation"
+  },
+  "memory-as-action-space": "Memory as an Action Space",
+  "active-memory-navigation": "Active Memory Navigation",
+  "memory-pyramid": "Memory Pyramid",
+  "provenance-linking": "Provenance Linking",
   "-- clinical --": {
     "type": "separator",
     "title": "Clinical and Case Studies"
@@ -60,6 +69,7 @@
   "levin-2024-self-improvising-memory": "Levin 2024 paper",
   "levin-2024-blog-supplement": "Levin 2024 blog",
   "youssef-2026-psychology-and-ai-memory": "Youssef 2026",
+  "source-napmem": "NapMem: Action Space",
   "schleisman-promise-of-agi-neuroscience": "Schleisman: Promise of AGI",
   "schleisman-is-your-technology-human-ready": "Schleisman: Human-Ready Tech",
   "-- outlier --": {

@@ -1,0 +1,49 @@
+# Active Memory Navigation
+
+**Summary**: How NapMem makes the action-space reframe concrete. The agent traverses a multi-granularity [memory-pyramid](/memory-pyramid) through tools, choosing which level to consult based on the query and evidence gathered so far, and stops when it has enough. The navigation policy is learned with reinforcement learning, making memory use a trainable skill rather than a hand-written routine.
+
+**Sources**: Memory as an Action Space.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The tools
+
+NapMem exposes five memory tools, each tailored to a layer of the pyramid:
+
+- search_conversations and get_conversations for raw evidence.
+- search_records and get_records for compact typed memory records.
+- read_files for topic tracks and the user profile.
+
+Search tools do hybrid retrieval over candidates. Get tools fetch exact items by persistent identifier. File reading exposes the higher abstractions. Together they allow top-down navigation (start at the profile, drill to evidence) or bottom-up (start from a record, ascend to the topic or profile). See [memory-pyramid](/memory-pyramid) and [provenance-linking](/provenance-linking).
+
+## The learned policy
+
+The navigation policy is trained with Group Relative Policy Optimization (GRPO). Each training sample is a memory-intensive query paired with a user's pyramid, answered under a maximum tool-call budget (four steps at inference). The reward is terminal and rule-based over three binary criteria: format validity, answer correctness, and whether the trajectory uses at least one memory tool. The highest reward goes to correct answers reached through memory use.
+
+Because the trajectory-level advantage applies to the tokens that specify tool calls, the final answer and the preceding navigation are optimized together. Memory use becomes a learnable behavior, not a prompt.
+
+## What the learned policy does
+
+After training, navigation becomes more selective: fewer tool calls, higher evidence-hit ratio, without collapsing onto a single memory level (source: Memory as an Action Space.pdf). The agent learns to stop once evidence is sufficient. Strategy also varies with scale: larger models more often open with broad file reads; smaller models tend to start from targeted records.
+
+## Connection to the wiki's sources
+
+- To Conway: goal-conditioned granularity selection is a measurable form of the [working-self](/working-self) modulating access. The "stop when enough" behavior is coherence-satisficing, close to [coherence-vs-correspondence](/coherence-vs-correspondence) favoring coherence once the goal is met.
+- To Levin: traversal across granularities is a bowtie re-inflation, decoding from compressed layers on demand. See [bowtie-architecture](/bowtie-architecture) and [mnemonic-improvisation](/mnemonic-improvisation).
+- To retrieval theory: it is a learned, multi-step generalization of generative [retrieval-models](/retrieval-models), where the route itself is conditioned on intermediate evidence.
+
+## What it does not settle
+
+Navigation is substrate-agnostic in spirit, but NapMem runs on ordinary storage. It is evidence for the functional layer, not for Levin's [no-single-substrate](/no-single-substrate) claim. See [open-questions](/open-questions).
+
+## Related pages
+
+- [memory-as-action-space](/memory-as-action-space)
+- [memory-pyramid](/memory-pyramid)
+- [provenance-linking](/provenance-linking)
+- [retrieval-models](/retrieval-models)
+- [bowtie-architecture](/bowtie-architecture)
+- [working-self](/working-self)
+- [source-napmem](/source-napmem)

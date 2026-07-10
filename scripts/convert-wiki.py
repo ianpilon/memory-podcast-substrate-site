@@ -15,11 +15,19 @@ WIKI_DIR = Path("/Users/ianpilon/Documents/Obsidian Vault/memory-podcast-substra
 OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "pages"
 SKIP = {"index.md"}
 
-WIKI_LINK_RE = re.compile(r"\[\[([a-z0-9][a-z0-9\-]*)\]\]")
+# Matches Obsidian wiki-links. Supports two forms:
+#   [[slug]]            -> [slug](/slug)
+#   [[slug|alias]]      -> [alias](/slug)
+WIKI_LINK_RE = re.compile(r"\[\[([a-z0-9][a-z0-9\-]*)(?:\|([^\]]+))?\]\]")
 
 
 def rewrite_links(text: str) -> str:
-    return WIKI_LINK_RE.sub(lambda m: f"[{m.group(1)}](/{m.group(1)})", text)
+    def repl(m: re.Match) -> str:
+        slug = m.group(1)
+        label = m.group(2) or slug
+        return f"[{label}](/{slug})"
+
+    return WIKI_LINK_RE.sub(repl, text)
 
 
 def convert(src: Path, dst: Path) -> None:

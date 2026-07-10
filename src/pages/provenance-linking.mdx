@@ -1,0 +1,35 @@
+# Provenance Linking
+
+**Summary**: The connective tissue of NapMem's [memory-pyramid](/memory-pyramid). Every higher-level memory (record, topic track, profile) carries explicit links back to the lower-level evidence it was derived from, so the agent can traverse from any summary down to the raw conversation that grounds it. Provenance is what turns a stack of summaries into a navigable structure.
+
+**Sources**: Memory as an Action Space.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The mechanism
+
+Each memory record stores the identifiers of the source messages it was extracted from. Topic tracks store links to the supporting record identifiers. The profile derives from records and tracks. Reconciliation, when records are merged or updated, preserves update history and source identifiers, so even after revision the chain back to evidence survives.
+
+This means every claim at any level of abstraction has a downward path to the conversation that produced it. The agent can verify a summary against raw evidence, or ascend from an isolated fragment to the topic it belongs to.
+
+## Why it matters for navigation
+
+Without provenance, a pyramid is just four disconnected stores. With it, the agent can drill: start from a profile claim, descend to the topic track, descend to the records, descend to the raw turn. Or run the reverse when an isolated detail needs context. Top-down and bottom-up navigation both depend on the links being there. See [active-memory-navigation](/active-memory-navigation).
+
+## Connection to the wiki's sources
+
+- To Conway: provenance is the engineered version of the access paths in the [autobiographical-knowledge-base](/autobiographical-knowledge-base), where specific episodes are reached through general events and lifetime periods. It is also what lets the system honor [coherence-vs-correspondence](/coherence-vs-correspondence): coherence at the top can be checked against correspondence at the bottom.
+- To Levin: the bidirectional traversal is a polycomputing read of the same substrate. The same stored data serves different functions depending on which level the agent reads it from. See [polycomputing](/polycomputing).
+- To evidence and distortion: provenance is a guardrail against confabulation. When a high-level summary can be traced back to its source, the active filling-in that Levin calls default ([confabulation-as-feature](/confabulation-as-feature)) stays anchored. Without it, summaries drift free of evidence.
+
+## Related pages
+
+- [memory-pyramid](/memory-pyramid)
+- [active-memory-navigation](/active-memory-navigation)
+- [autobiographical-knowledge-base](/autobiographical-knowledge-base)
+- [coherence-vs-correspondence](/coherence-vs-correspondence)
+- [polycomputing](/polycomputing)
+- [confabulation-as-feature](/confabulation-as-feature)
+- [source-napmem](/source-napmem)

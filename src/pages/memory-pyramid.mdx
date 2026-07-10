@@ -1,0 +1,44 @@
+# Memory Pyramid
+
+**Summary**: NapMem's storage structure: a per-user, multi-granularity pyramid with four linked levels, from raw conversations up to a user profile, connected by provenance relations. It is an engineering re-derivation of Conway's autobiographical knowledge hierarchy and the substrate the agent [navigates](/active-memory-navigation).
+
+**Sources**: Memory as an Action Space.pdf
+
+**Last updated**: 2026-07-10
+
+---
+
+## The four levels
+
+The pyramid is built incrementally and bottom-up per user, as new sessions arrive:
+
+1. **Raw conversations.** Append-only message-level entries with content, role, timestamp, and a unique identifier. Highest fidelity, used for evidence-level verification.
+2. **Memory records.** Compact typed records in four types: fact, event, instruction, preference. Reconciled against existing records through hybrid retrieval to remove duplicates, update stale entries, and merge related ones. Each keeps source message identifiers.
+3. **Topic tracks.** Medium-range abstractions that accumulate context around a recurring user topic across sessions. Stored as narrative files, grounded by links to supporting record identifiers.
+4. **User profile.** A global summary of stable attributes, long-term preferences, and interaction patterns, revised under a length budget.
+
+Lower layers are JSONL with vector and keyword indices; the upper two are Markdown files readable directly through tools.
+
+## The Conway bridge
+
+The structure is strikingly close to Conway's [autobiographical-knowledge-base](/autobiographical-knowledge-base): life story down to general events, event-specific knowledge, and one-time-point [episodic-memory](/episodic-memory) episodes. NapMem re-derives the same shape from engineering pressure, not from citing Conway. Both are hierarchies of abstraction over the same underlying history, with downward paths from summary to evidence. See [self-memory-system](/self-memory-system).
+
+This is one of the wiki's strongest cross-source convergences: a 2005 psychology framework and a 2026 agent system arrive at the same layered memory structure independently.
+
+## Provenance
+
+Adjacent levels are linked through provenance relations: records point back to source messages, topic tracks cite supporting record identifiers, the profile derives from records and tracks. These links let the agent move between detailed evidence and summarized understanding during navigation. See [provenance-linking](/provenance-linking).
+
+## Bowtie shape
+
+The pyramid also instantiates Levin's [bowtie-architecture](/bowtie-architecture): information compresses upward into low-bandwidth summaries (records, tracks, profile) and must be creatively re-inflated downward at query time by the navigation policy. The compression is lossy by design; the re-inflation is where meaning is reconstructed. See [bowtie-architecture](/bowtie-architecture) and [memory-as-action-space](/memory-as-action-space).
+
+## Related pages
+
+- [active-memory-navigation](/active-memory-navigation)
+- [provenance-linking](/provenance-linking)
+- [autobiographical-knowledge-base](/autobiographical-knowledge-base)
+- [self-memory-system](/self-memory-system)
+- [episodic-memory](/episodic-memory)
+- [bowtie-architecture](/bowtie-architecture)
+- [source-napmem](/source-napmem)
