@@ -4,6 +4,8 @@ A Karpathy-style LLM wiki on memory, identity, and the construction question. Th
 
 **Live:** https://memory-as-construction-site.vercel.app
 
+[![Memory as Construction wiki home](docs/wiki-home.png)](https://memory-as-construction-site.vercel.app)
+
 > See [On the Rename](https://memory-as-construction-site.vercel.app/on-naming) for the arc from "substrate" to "navigation" to "construction." The short version: biological and AI memory differ at the substrate level but share a function, and the name has to sit at the function level where they are genuinely the same thing.
 
 ## The thesis
